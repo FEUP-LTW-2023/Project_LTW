@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    flex-direction: row;
+    background-color: #313654;
+    font-family: 'Gilroy';
+}
+
+#login > h2, #signup > h2{
+    background-color: #443ba7;
+    color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 1em;
+}
+
+#login > form, #signup > form{
+    background-color: #1c1c1c;
+    text-align: center;
+    margin: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+#login > form > input, #signup > form > input{
+    border: 0;
+    margin: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    text-align: center;
+    border-radius:15px;
+    height: 4.5em;
+    width: 17em;
+    background-color: #d1d1d1;
+    color: #4a4a4a;
+    font-family: 'Gilroy';
+}
+
+#login > form > input[type='submit'], #signup > form > input[type='submit']{
+    background-color: #443ba7;
+    color: white;
+    font-weight: bold;
+    padding: 3em;
+    width: auto;
+}
