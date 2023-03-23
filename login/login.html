@@ -7,19 +7,23 @@
     </head>
     <body>
         <div id = 'login'>
-            <h2>Login to your account</h2>
+            <div class = 'title'>
+                Login to your account   
+            </div>
             <form id = 'login-form'>
-                <input name = 'user-email' placeholder="username / e-mail">
-                <input name = 'password' placeholder="password">
-                <input type="submit" value = 'Login'>
+                <input name = 'user-email' placeholder="username / e-mail" autocomplete="off">
+                <input type = 'password' name = 'password' placeholder="password" autocomplete="off">
+                <input type="submit" value = 'Login' autocomplete="off">
             </form>
         </div>
         <div id = 'signup'>
-            <h2>Create an account</h2>
+            <div class = 'title'>
+                Create an account
+            </div>
             <form id = 'signup-form'>
-                <input name = 'user' placeholder="username">
-                <input name = 'email' placeholder="e-mail">
-                <input name = 'password' placeholder="password">
+                <input name = 'user' placeholder="username" autocomplete="off">
+                <input name = 'email' placeholder="e-mail" autocomplete="off">
+                <input type = 'password' name = 'password' placeholder="password" autocomplete="off">
                 <input type="submit" value = 'Sign Up'>
             </form>
         </div>
