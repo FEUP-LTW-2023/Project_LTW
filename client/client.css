@@ -1,0 +1,42 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+body{
+    background-color: #1c1c1c;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+#interface{
+    background-color: #313654;
+    margin: auto;
+    width: 1280px;
+    height: 720px;
+}
+
+#top-bar{
+    height: 75px;
+    background-color: #443ba7;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#top-bar > div{
+    font-family: 'Gilroy-Bold';
+    font-size: 25px;
+}
+#user-info{
+    display: flex;
+    flex-direction: row;
+}
+#user-info > div, #menu{
+    margin: 1em;
+}
+
+#tickets{
+    width: 1050px;
+    height: 550px;
+    background-color: #313654;
+}
