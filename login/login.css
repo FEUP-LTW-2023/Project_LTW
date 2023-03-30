@@ -1,4 +1,4 @@
-
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 
 body{
     position: relative;
@@ -6,7 +6,6 @@ body{
     height: 720px;
     background-color: #313654;
     margin:auto;
-    font-family: 'Gilroy';
 }
 
 #login{
@@ -33,6 +32,7 @@ body{
     flex-direction: column;
     font-weight: bold;
     font-size: 25px;
+    font-family: 'Gilroy-Bold';
 }
 #login-form > input{
     border: none;
@@ -40,6 +40,7 @@ body{
     font-size: 20px;
     border-radius: 15px;
     background-color: #d1d1d1;
+    font-family: 'Gilroy-Light';
 }
 #login-form > input[name = 'user-email']{
     width: 271px;
@@ -60,9 +61,10 @@ body{
     height: 73px;
     margin-left: 77px;
     margin-top: 56px;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     border-radius: 25px;
+    font-family: 'Gilroy-Bold';
 }
 
 #signup{
@@ -89,6 +91,7 @@ body{
     flex-direction: column;
     font-weight: bold;
     font-size: 25px;
+    font-family: 'Gilroy-Bold';
 }
 #signup-form > input{
     border: none;
@@ -96,6 +99,7 @@ body{
     font-size: 20px;
     border-radius: 15px;
     background-color: #d1d1d1;
+    font-family: 'Gilroy-Light';
     
 }
 #signup-form > input[name = 'user']{
@@ -123,9 +127,13 @@ body{
     height: 73px;
     margin-left: 77px;
     margin-top: 56px;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     border-radius: 25px;
+    font-family: 'Gilroy-Bold';
+}
+#login-form > input[type = 'submit']:hover, #signup-form > input[type='submit']:hover{
+    cursor: pointer;
 }
 
 #login-form > input:hover, #signup-form > input:hover{
