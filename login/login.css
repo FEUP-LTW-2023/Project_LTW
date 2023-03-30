@@ -132,6 +132,9 @@ body{
     border-radius: 25px;
     font-family: 'Gilroy-Bold';
 }
+#login-form > input[type = 'submit']:hover, #signup-form > input[type='submit']:hover{
+    cursor: pointer;
+}
 
 #login-form > input:hover, #signup-form > input:hover{
     background-color: #afafaf;
