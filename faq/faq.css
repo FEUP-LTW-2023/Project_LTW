@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#wrapper {
+  height: 100vh;
+  background: url("./../images/background.jpg") no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main {
+  width: 80%;
+  height: 80%;
+  background: url("./../images/ph.jpg") no-repeat, #fff;
+  background-position: -2% 43%, 1230% 67%;
+  background-size: 50%, 105%;
+  padding: 2em 4em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 1.5em;
+}
+
+section {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+section .question {
+  background: url("./../images/arrow-down-3101.svg") no-repeat 100% 50%;
+  background-size: 12px auto;
+  font-size: 13px;
+}
+
+section .answer {
+  padding: 1em;
+  font-size: 11.5px;
+  line-height: 1.7em;
+  display: none;
+}
+
+section .question, section .answer {
+  width: 100%;
+  cursor: pointer;
+}
+
+section header {
+  width: 100%;
+  padding-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px;
+}
+
+article::-webkit-scrollbar {
+  display: none;
+}
+
+article {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+article ul {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+article .qea {
+  width: 100%;
+  padding: 1.35em 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: solid 1px hsl(240, 5%, 91%);
+}
+
+#onFocus {
+  font-weight: 700;
+}
