@@ -1,0 +1,15 @@
+
+#wrapper {
+    height: 100vh;
+    background: url("../images/background.jpg") no-repeat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#top-bar{
+    display: flex;
+    flex-direction: row;
+    background-color: #171e25;
+    color: white;
+}
