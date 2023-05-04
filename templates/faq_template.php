@@ -1,42 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php function draw_faq(){ ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=100.0">
-
-  <link href="style.css" rel="stylesheet">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-  <script src="faq.js"></script>
-
-  <title>FAQ</title>
-</head>
-
-<body>
-  <div id="wrapper">
-    <!-- TOP BAR -->
-    <div id="top-bar">
-      <nav id="menu">
-        <input type="checkbox" id="hamburger">
-        <label class="hamburger" for="hamburger"></label>
-        <ul>
-          <a href="agent-dashboard.html">Ticket dashboard</a>
-          <a href="../faq/faq.html">Frequently asked questions</a>
-          <a href="">Performance metrics</a>
-          <a href="">Options</a>
-        </ul>
-      </nav>
-      <span id="username">
-        pedrofvgomes
-      </span>
-      <img class="avatar">
-    </div>
-    <main>
-      <section>
+<div id = "faq">
+    <img src="/../images/faq.png">
+    <section>
         <header>
-          <h1>FAQ</h1>
+          <h1>Frequently Asked Questions</h1>
         </header>
         <article>
           <ul>
@@ -102,9 +70,7 @@
             </div>
           </ul>
         </article>
-      </section>
-    </main>
-  </div>
-</body>
+    </section>
+</div>
 
-</html>
+<?php }?>
