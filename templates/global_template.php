@@ -19,7 +19,7 @@
         <input type="checkbox" id="hamburger">
         <label class="hamburger" for="hamburger"></label>
         <ul>
-            <li><a href="agent-dashboard.html">Ticket dashboard</a></li>
+            <li><a href="agent_dashboard.php">Ticket dashboard</a></li>
             <li><a href="/../pages/faq.php">Frequently asked questions</a></li>
             <li><a href="">Performance metrics</a></li>
             <li><a href="">Options</a></li>
