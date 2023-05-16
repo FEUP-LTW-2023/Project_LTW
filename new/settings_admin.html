@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link
+	rel="icon"
+	type="image/png"
+	sizes="32x32"
+	href="./assets/coding.png"
+  />
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="settings_admin.css">
+
+	<title>QuickFix - Settings Admin</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<img src="assets/logoo.png" alt="Logo">
+			<span class="text">QUICKFIX</span>
+		</a>
+		
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Ticket Central</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Assigned Tickets</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">FAQ</span>
+				</a>
+			</li>
+		</ul>
+        <ul class="side-menu top">
+			<li>
+				<a href="#">
+					<i class='bx bxs-group' ></i>
+					<span class="text">User Roles</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-building' ></i>
+					<span class="text">Departments</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Administration</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<form action="#">
+				
+			</form>
+			<label></label>
+			<a href="#" class="profile">
+				<img src="img/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Departments</h3>
+						<td><button class="status pending simple-button">Create Departments</button></td>
+					</div>
+					<table>
+						<tbody>
+                            <tr>
+								<td>Technical Support</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>Billing and Payments</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>Human Resources</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>Quality Assurance</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>Operations and Logistics</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="order">
+					<div class="head">
+						<h3>Status</h3>
+						<td><button class="status pending simple-button">Create Status</button></td>
+					</div>
+					<table>
+						<tbody>
+                            <tr>
+								<td>Open</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>Assigned</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>Closed</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="order">
+					<div class="head">
+						<h3>Priority</h3>
+						<td><button class="status pending simple-button">Create Priority</button></td>
+					</div>
+					<table>
+						<tbody>
+                            <tr>
+								<td>Low</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>Medium</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>High</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+							<tr>
+								<td>Urgent</td>
+								<td><i class='bx bx-trash' ></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="script.js"></script>
+</body>
+</html>
