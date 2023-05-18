@@ -1,7 +1,7 @@
 <?php function draw_client_sidebar() { ?>
     <section id="sidebar">
 		<a href="#" class="brand">
-			<img src="../new/assets/logoo.png" alt="Logo">
+			<img src="assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
 		
@@ -15,33 +15,13 @@
 			<li>
 				<a href="#">
 					<i class='bx bx-file' ></i>
-					<span class="text">Assigned Tickets</span>
+					<span class="text">My Tickets</span>
 				</a>
 			</li>
 			<li>
 				<a href="#">
 					<i class='bx bxs-help-circle' ></i>
 					<span class="text">FAQ</span>
-				</a>
-			</li>
-		</ul>
-        <ul class="side-menu top">
-			<li>
-				<a href="#">
-					<i class='bx bxs-group' ></i>
-					<span class="text">User Roles</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-building' ></i>
-					<span class="text">Departments</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Administration</span>
 				</a>
 			</li>
 		</ul>
