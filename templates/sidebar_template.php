@@ -6,14 +6,14 @@
 		</a>
 		
 		<ul class="side-menu top">
-			<li class="active">
+			<li>
 				<a href="#">
 					<i class='bx bxs-category' ></i>
 					<span class="text">Ticket Central</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="../pages/client_tickets.php">
 					<i class='bx bx-file' ></i>
 					<span class="text">My Tickets</span>
 				</a>
