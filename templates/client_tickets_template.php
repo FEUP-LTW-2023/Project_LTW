@@ -9,7 +9,7 @@
 			</form>
 			<label></label>
 			<a href="#" class="profile">
-				<img src="img/people.png">
+				<img src="../new/img/people.png">
 			</a>
 		</nav>
 		<!-- NAVBAR -->
