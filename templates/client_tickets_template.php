@@ -76,7 +76,7 @@
 	<!-- CONTENT -->
 	
 
-	<script src="script.js"></script>
+	<script src="../new/script.js"></script>
 </body>
 </html>
 
