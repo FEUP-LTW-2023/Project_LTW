@@ -17,7 +17,7 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>User Roles</h1>
+					<h1>Upgrade User Roles</h1>
 				</div>
 			</div>
 			<div class="table-data">
