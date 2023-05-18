@@ -27,7 +27,7 @@
         <!-- My CSS -->
         <link rel="stylesheet" href="../new/upgrade.css">
 
-        <title>QuickFix - User Role</title>
+        <title>QuickFix - Upgrade User Roles</title>
     </head>
     <body>
 <?php } ?>
