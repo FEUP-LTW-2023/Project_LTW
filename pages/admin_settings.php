@@ -5,7 +5,7 @@
     require_once(__DIR__ . '/../templates/admin_settings_template.php');
 
     draw_head();
-    draw_client_sidebar();
+    draw_agent_sidebar();
     draw_admin_settings();
 ?>
 
@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link
         rel="icon"
-        type="image/png"
+        type="../new/image/png"
         sizes="32x32"
         href="../new/assets/coding.png"
         >

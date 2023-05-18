@@ -45,7 +45,7 @@
 				</div>
 				<div class="order">
 					<div class="head">
-						<h3>Status</h3>
+						<h3>Statuses</h3>
 						<td><button class="status pending simple-button">Create Status</button></td>
 					</div>
 					<table>
@@ -67,7 +67,7 @@
 				</div>
                 <div class="order">
 					<div class="head">
-						<h3>Priority</h3>
+						<h3>Priorities</h3>
 						<td><button class="status pending simple-button">Create Priority</button></td>
 					</div>
 					<table>
