@@ -1,7 +1,7 @@
 <?php function draw_client_sidebar() { ?>
     <section id="sidebar">
 		<a href="#" class="brand">
-			<img src="assets/logoo.png" alt="Logo">
+			<img src="../new/assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
 		
