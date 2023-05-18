@@ -8,7 +8,7 @@
 				
 			</form>
 			<label></label>
-			<a href="#" class="profile">
+			<a href="../pages/profile.php" class="profile">
 				<img src="../new/img/people.png">
 			</a>
 		</nav>
