@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap");
+
+:root {
+  --white: #ffffff;
+  --primary-gradient: linear-gradient(180deg, #ff6f48 0.04%, #f02aa6 100%);
+  --secondary-gradient: linear-gradient(180deg, #4851ff 0%, #f02aa6 99.92%);
+}
+
+* {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background: url(./assets/background.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--blue);
+  margin-top: 3rem;
+  margin-left: 1rem;
+}
+
+.header .logo {
+  height: 20px;
+}
+
+.intro-heading {
+  color: var(--white);
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: 800;
+  margin: 1rem;
+  margin-top: 0rem; /* Adjusted margin-top */
+  margin-bottom: 0.5rem; /* Adjusted margin-bottom */
+}
+
+.intro-paragraph {
+  color: var(--white);
+  font-size: 16px;
+  margin: 1rem;
+  margin-top: 0.5rem; /* Adjusted margin-top */
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.intro-btn {
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 50px;
+  width: 167px;
+  height: 56px;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 700;
+  margin: 0.5rem 1rem; /* Adjusted margins */
+}
+
+
+.intro-btn:hover {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    var(--primary-gradient);
+  cursor: pointer;
+}
+
+@media (min-width: 576px) {
+  .hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 70vh;
+    background-image: url(./assets/pc.png);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+  }
+
+  .main-wrapper {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 86px;
+  }
+
+  .intro-heading {
+    font-size: 36px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro-text {
+    height: 50vh;
+    width: 48%;
+    margin-bottom: 5rem;
+  }
+
+  .intro-image {
+    display: none;
+  }
+
+  .intro-paragraph {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-image {
+    height: 95vh;
+    background-image: url(./assets/pc.png);
+    background-position: 0px -70px;
+    background-size: auto 120%;
+  }
+
+  .intro-heading {
+    font-size: 56px;
+    line-height: 70px;
+  }
+
+  .intro-text {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+  .main-wrapper {
+    width: 90%;
+    margin: auto;
+  }
+}

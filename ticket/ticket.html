@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div>
+        <nav id="menu">
+            <input type="checkbox" id="hamburger">
+            <label class="hamburger" for="hamburger"></label>
+            <ul>
+                <a href="agent-dashboard.html">Ticket dashboard</a>
+                <a href="../faq/faq.html">Frequently asked questions</a>
+                <a href="">Performance metrics</a>
+                <a href="">Options</a>
+            </ul>
+        </nav>
+        <span id="username">
+            pedrofvgomes
+        </span>
+        <img class="avatar">
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <h2>Ticket</h2>
+
+            <!-- Ticket List -->
+            <div class="ticket-list">
+                <div class="ticket">
+                    <div class="ticket-header">
+                        <h3>Need help accessing my email account</h3>
+                        <span class="ticket-id">#12346</span>
+                    </div>
+                    <div class="ticket-body">
+                        <p>Category: <span class="ticket-category">Accounting</span></p>
+                        <p>Priority: <span class="ticket-priority">Medium</span></p>
+                        <p>Status: <span class="ticket-status">Assigned</span></p>
+                        <p>Assigned to: <span class="ticket-assigned">John Smith</span></p>
+                    </div>
+                    <div class="ticket-body">
+                        <p>Category: <span class="ticket-category">Technical Support</span></p>
+                        <p>Priority: <span class="ticket-priority">Medium</span></p>
+                        <p>Status: <span class="ticket-status">Assigned</span></p>
+                        <p>Assigned to: <span class="ticket-assigned">John Smith</span></p>
+                        <p>Submitted by: <span class="ticket-submitted-by">Jane Doe</span></p>
+                        <p>Submitted on: <span class="ticket-submitted-date">May 1, 2023 10:30 AM</span></p>
+                        <hr>
+                        <h3>Description</h3>
+                        <p>Hello, I am having trouble accessing my email account. Whenever I try to log in, I get an error message saying "invalid username or password." I have double-checked my login credentials and they are correct. I have also tried resetting my password but it doesn't seem to work. Can you please help me resolve this issue? I need to access my email as soon as possible. Thank you. </p>
+                        <hr>
+                        <h3>Comments</h3>
+                        <div class="comments">
+                          <div class="comment">
+                            <p class="comment-author">John Smith <span class="comment-date">May 2, 2023 9:45 AM</span></p>
+                            <p class="comment-body">Thank you for submitting your ticket. I will take a look and get back to you shortly.</p>
+                          </div>
+                          <div class="comment">
+                            <p class="comment-author">Jane Doe <span class="comment-date">May 3, 2023 2:15 PM</span></p>
+                            <p class="comment-body">Thank you for your prompt reply, John.</p>
+                          </div>
+                        </div>
+                        <hr>
+                        <h3>Add Comment</h3>
+                        <form class="comment-form">
+                          <label for="comment">Comment:</label>
+                          <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+                          <button type="submit">Submit</button>
+                        </form>
+                      </div>
+                      <div class="ticket-details">
+                        <h3 class="ticket-details-header">Ticket Details</h3>
+<p class="ticket-details-text">
+    This ticket was created by a user who is having trouble accessing their email. They have attempted to log in to their email account multiple times but have been unsuccessful. They have also tried resetting their password, but the issue persists. The user requires assistance in accessing their email account as soon as possible.</p>
+</div>
+                    <div class="ticket-history">
+                        <h3 class="ticket-history-header">Ticket History</h3>
+                        <div class="ticket-history-item">
+                            <p><span class="ticket-history-user">John Smith</span> assigned this ticket to <span class="ticket-history-assignee">Jane Doe</span> on <span class="ticket-history-date">2023-05-01 10:00:00</span>.</p>
+                        </div>
+                        <div class="ticket-history-item">
+                            <p><span class="ticket-history-user">Jane Doe</span> changed the status to <span class="ticket-history-status">In Progress</span> on <span class="ticket-history-date">2023-05-02 09:00:00</span>.</p>
+                        </div>
+                        <div class="ticket-history-item">
+                            <p><span class="ticket-history-user">John Smith</span> added a new hashtag: <span class="ticket-history-hashtag">#passwordreset</span> on <span class="ticket-history-date">2023-05-03 14:00:00</span>.</p>
+                        </div>
+                        <div class="ticket-history-item">
+                            <p><span class="ticket-history-user">Jane Doe</span> replied to the client on <span class="ticket-history-date">2023-05-04 11:00:00</span>.</p>
+                        </div>
+                    </div>
+                    <div class="ticket-reply">
+                        <form class="ticket-reply-form" action="" method="post">
+                            <h3 class="ticket-reply-header">Add a Reply</h3>
+                            <textarea class="ticket-reply-text" name="reply" id="reply" cols="30" rows="10"></textarea>
+                            <input class="ticket-reply-submit" type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
+                   
