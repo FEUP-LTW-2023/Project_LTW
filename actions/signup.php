@@ -11,7 +11,7 @@
 
     $user = Account::signup($db, $_POST['username'], $_POST['email'], $_POST['password']);
 
-    if($user){
+    if($user != null){
         $session->setId($user->id);
         $session->setUsername($user->username);
         $session->setEmail($user->email);
