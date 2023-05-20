@@ -32,10 +32,10 @@ class Account
         if ($account) {
             return new Account(
                 intval($account['id']),
-                $account['username'] == null? "" : $account['username'],
-                $account['email'] == null? "" : $account['email'],
-                $account['name'] == null? "" : $account['name'],
-                $account['role'] == null? "" : $account['role']
+                $account['username'] == null ? "" : $account['username'],
+                $account['email'] == null ? "" : $account['email'],
+                $account['name'] == null ? "" : $account['name'],
+                $account['role'] == null ? "" : $account['role']
             );
         } else
             return null;
@@ -43,25 +43,32 @@ class Account
 
     public static function signup(PDO $db, string $username, string $email, string $password): ?Account
     {
-        $stmt = $db->prepare("
+        $stmt = $db->prepare('select count(*) from Account where username = ? or email = ?');
+        $stmt->execute([$username, $email]);
+        $count = $stmt->fetchColumn();
+
+        if ($count == 0) {
+            $stmt = $db->prepare("
             insert into Account (username, email, password)
             values (?, ?, ?)
         ");
 
-        $stmt->execute([$username, $email, $password]);
-        $account = $stmt->fetch();
+            $stmt->execute([$username, $email, $password]);
 
-        if ($account) {
-            return new Account(
-                $account['id'],
-                $account['username'],
-                $account['email'],
-                $account['name'],
-                $account['role']
+            $account = new Account(
+                intval($db->lastInsertId()),
+                $username,
+                $email,
+                '',
+                '',
             );
-        } else
-            return null;
+
+            return $account;
+        }
+
+        return null;
     }
+
 
     public static function getUser(PDO $db, string $username): ?Account
     {
