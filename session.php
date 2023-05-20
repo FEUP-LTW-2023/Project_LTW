@@ -26,10 +26,26 @@ class Session
         return isset($_SESSION['id']) ? $_SESSION['id'] : null;
     }
 
+    public function getUsername(): ?string{
+        return isset($_SESSION['username']) ? $_SESSION['username'] : null;
+    }
+
     public function getName(): ?string
     {
         return isset($_SESSION['name']) ? $_SESSION['name'] : null;
     }
+
+    public function getEmail(): ?string
+    {
+        return isset($_SESSION['email']) ? $_SESSION['email'] : null;
+    }
+
+    public function getRole(): ?string
+    {
+        return isset($_SESSION['role']) ? $_SESSION['role'] : null;
+    }
+
+
 
     public function setId(int $id)
     {
