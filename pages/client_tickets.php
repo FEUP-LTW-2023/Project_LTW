@@ -25,7 +25,7 @@
         <!-- Boxicons -->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         <!-- My CSS -->
-        <link rel="stylesheet" href="../new/tickets_client.css">
+        <link rel="stylesheet" href="../style/style2.css">
 
         <title>QuickFix - My Tickets</title>
     </head>

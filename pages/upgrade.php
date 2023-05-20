@@ -5,7 +5,7 @@
     require_once(__DIR__ . '/../templates/upgrade_template.php');
 
     draw_head();
-    draw_agent_sidebar();
+    draw_admin_sidebar();
     draw_upgrade();
 ?>
 
@@ -25,7 +25,7 @@
         <!-- Boxicons -->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         <!-- My CSS -->
-        <link rel="stylesheet" href="../new/upgrade.css">
+        <link rel="stylesheet" href="../style/style2.css">
 
         <title>QuickFix - Upgrade User Roles</title>
     </head>
