@@ -12,7 +12,7 @@
     $user = Account::login($db, $_POST['usernameemail'], $_POST['password']);
 
     if($user){
-        $session->setId($user->id);
+        $session->setId(intval($user->id));
         $session->setUsername($user->username);
         $session->setEmail($user->email);
         $session->setName($user->name);
@@ -21,6 +21,6 @@
     }
     else $session->addMessage('error', 'Email/username or password wrong.');
 
-    header('Location: '. $_SERVER['HTTP_REFERER']);
+    header('Location: /../pages/profile.php');
 
 ?>
