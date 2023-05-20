@@ -1,4 +1,4 @@
-<?php function draw_profile() { ?>
+<?php function draw_profile(Session $session) { ?>
 	<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
@@ -21,10 +21,10 @@
 				<div class="card-image">
 					<img src="../new/img/pic.jpg" alt="Profile image">
 				</div>
-				<p class="name">John Doe</p>
-				<p>johndoe123</p>
-				<p> johndoe@example.com</p>
-				<p>Agent</p>
+				<p class="name"><?php echo $session->getName(); ?></p>
+				<p><?php echo $session->getUsername(); ?></p>
+				<p><?php echo $session->getEmail(); ?></p>
+				<p><?php echo $session->getRole(); ?></p>
 			</div>
 		</main>
 		<!-- MAIN -->
