@@ -243,6 +243,28 @@ p {
     margin-bottom: 8px;
 }
 
+.role{
+	color: rgb(0, 89, 255);
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+#logout{
+	background-color: rgb(225, 40, 40);
+	border: none;
+	border-radius: 10px;
+	font-family: var(--poppins);
+	font-size: 1em;
+	font-weight: bold;
+	padding: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	margin-top: 2em;
+}
+#logout:hover{
+	cursor: pointer;
+}
+
 
 /* NAVBAR */
 #content nav {
