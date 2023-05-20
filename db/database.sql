@@ -17,7 +17,8 @@ create table Ticket
     id integer primary key autoincrement not null,
     author integer not null references Account(id),
     agent integer references Account(id),
-    title varchar(255),
+    subject varchar(255),
     description varchar(255),
+    department varchar(255),
     datecreated timestamp default current_timestamp
 );
