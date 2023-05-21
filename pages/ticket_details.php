@@ -3,15 +3,22 @@
 
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/ticket_details_template.php');
+    require_once(__DIR__ . '/../db/ticket_class.php'); 
+    require_once(__DIR__ . '/../db/connection.php'); 
 
-    draw_head();
+    $db = getdbconnection();
+
+    $ticket = Ticket::getTicket($db, intval($_GET['id']));
+
+
+    draw_head($ticket);
     // para já fica client sidebar, depois adicionar logica para verificar a role do user
     draw_client_sidebar();
-    draw_ticket_details();
+    draw_ticket_details($db, $ticket);
 ?>
 
 
-<?php function draw_head() { ?>
+<?php function draw_head(Ticket $ticket) { ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -24,7 +31,7 @@
         <!-- My CSS -->
         <link rel="stylesheet" href="../new/ticket_detail.css">
 
-        <title>QuickFix - Dashboard</title>
+        <title><?php echo $ticket->subject ?></title>
     </head>
 
     <body>
