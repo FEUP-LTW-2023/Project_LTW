@@ -12,8 +12,17 @@
 
 
     draw_head($ticket);
-    // para já fica client sidebar, depois adicionar logica para verificar a role do user
-    draw_client_sidebar();
+    switch($user->role){
+        case 'Client':
+            draw_client_sidebar();
+            break;
+        case 'Agent':
+            draw_agent_sidebar();
+            break;
+        case 'Admin':
+            draw_admin_sidebar();
+            break;
+    }
     draw_ticket_details($db, $ticket);
 ?>
 
