@@ -481,3 +481,75 @@ body {
 		min-width: 420px;
 	}
 }
+
+/* Media query para telas divididas em duas janelas */
+@media screen and (max-width: 1280px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  #content {
+    position: static;
+    width: 100%;
+    left: auto;
+  }
+
+  #content nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  #content nav::before {
+    display: none;
+  }
+
+  #content nav .nav-link {
+    display: inline-block;
+  }
+
+  #content nav form .form-input input {
+    display: none;
+  }
+
+  #content nav form .form-input button {
+    display: none;
+  }
+
+  #content nav form.show .form-input input {
+    display: block;
+  }
+
+  #content nav form.show .form-input button {
+    display: inline-block;
+  }
+
+  #content nav .notification,
+  #content nav .profile {
+    display: none;
+  }
+
+  #content main {
+    max-height: none;
+  }
+
+  #content main .table-data .order,
+  #content main .table-data .todo {
+    flex-basis: 100%;
+  }
+
+  #content main .table-data .head,
+  #content main .table-data .order table,
+  #content main .table-data .todo .todo-list {
+    min-width: 100%;
+  }
+}
