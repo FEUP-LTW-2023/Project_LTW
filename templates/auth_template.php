@@ -3,6 +3,18 @@
 <?php function draw_auth() { ?>
 
 <div id="auth">
+    <?php
+
+    $session = new Session();
+    $messages = $session->getMessages();
+
+    foreach ($messages as $message) {
+        if ($message['type'] === 'error') {
+            echo '<p class="error">' . $message['text'] . '</p>';
+        }
+    }
+    ?>
+
     <form id="login-form" action="/../actions/login.php" method="post">
         <h1>Already have an account?</h1>
         <input name="usernameemail" type="text" placeholder="username / e-mail" autocomplete="off">

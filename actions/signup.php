@@ -9,17 +9,27 @@
 
     $db = getdbconnection();
 
-    $user = Account::signup($db, $_POST['username'], $_POST['email'], $_POST['password']);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-    if($user != null){
-        $session->setId($user->id);
-        $session->setUsername($user->username);
-        $session->setEmail($user->email);
-        $session->setName($user->name);
-        $session->setRole($user->role);
-        $session->addMessage('success', 'Signup successful!');
+        $user = Account::signup($db, $username, $email, $password);
+
+        if ($user) {
+            $session->setId($user->id);
+            $session->setUsername($user->username);
+            $session->setEmail($user->email);
+            $session->setName($user->name);
+            $session->setRole($user->role);
+            $session->addMessage('success', 'Signup successful!');
+            header('Location: /../pages/authentication.php');
+            exit();
+        } else {
+            $session->addMessage('error', 'Username or email already exists.');
+        }
     }
-    else $session->addMessage('error', 'There is already an account with this username or email');
 
     header('Location: /../pages/authentication.php');
+
 ?>
