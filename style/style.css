@@ -82,10 +82,10 @@ body {
     top: 0;
     right: 0;
     width: 50%;
-    height: 70vh;
-    background-image: url(assets/pc.png);
+    height: 100%;
+    background-image: url(/../assets/pc.png);
     background-repeat: no-repeat;
-    background-position: bottom left;
+	margin: 0;
   }
 
   .main-wrapper {
@@ -119,10 +119,10 @@ body {
 @media (min-width: 992px) {
   .hero-image {
     height: 95vh;
-    background-image: url(assets/pc.png);
-    background-position: 0px -70px;
-    background-size: auto 120%;
-  }
+    background-image: url(/../assets/pc.png);
+    background-size: auto 100%;
+	margin: auto;
+	}
 
   .intro-heading {
     font-size: 56px;
