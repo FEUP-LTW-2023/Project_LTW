@@ -65,7 +65,7 @@ function draw_admin_settings(PDO $db)
             </div>
         </main>
     </section>
-    <script src="../new/script.js"></script>
+    <script src="../js/script.js"></script>
     </body>
     </html>
 <?php } ?>

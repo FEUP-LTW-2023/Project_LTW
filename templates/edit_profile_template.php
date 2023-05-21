@@ -37,6 +37,10 @@ function draw_edit_profile(Session $session)
                         <label for="email">Email</label>
                         <input type="email" id="edit-email" name="email" value="<?php echo $session->getEmail(); ?>">
                     </div>
+                    <div class="form-field">
+                        <label for="password">New Password</label>
+                        <input type="password" id="edit-password" name="password" value="<?php echo $session->getPassword(); ?>">
+                    </div>
                     <button type="submit">Save Changes</button>
                 </form>
             </div>
@@ -44,7 +48,7 @@ function draw_edit_profile(Session $session)
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-    <script src="../new/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
 <?php

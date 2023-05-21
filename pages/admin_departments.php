@@ -41,9 +41,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link
         rel="icon"
-        type="../new/image/png"
+        type="image/png"
         sizes="32x32"
-        href="../new/assets/coding.png"
+        href="../assets/coding.png"
         />
         <!-- Boxicons -->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>

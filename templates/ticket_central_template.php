@@ -72,7 +72,7 @@ function draw_ticket_central(PDO $db)
     <!-- MAIN -->
 </section>
 
-<script src="../new/script.js"></script>
+<script src="../js/script.js"></script>
 <script>
     function previousPage() {
         if (<?php echo $page; ?> > 1) {

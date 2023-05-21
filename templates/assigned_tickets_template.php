@@ -48,7 +48,7 @@ function draw_assigned_tickets(PDO $db, $session)
                             <?php foreach ($tickets as $ticket) { ?>
                                 <tr id="ticket" onclick="window.location.href='ticket_details.php?id=<?php echo $ticket['id']; ?>'">
                                     <td>
-                                        <img src="img/people.png">
+                                        <img src="../images/people.png">
                                         <p><?php echo $ticket['name'] . ' (' . $ticket['username'] . ')'; ?></p>
                                     </td>
                                     <td><?php echo $ticket['subject']; ?></td>
@@ -65,7 +65,7 @@ function draw_assigned_tickets(PDO $db, $session)
         </main>
         <!-- MAIN -->
     </section>
-    <script src="../new/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

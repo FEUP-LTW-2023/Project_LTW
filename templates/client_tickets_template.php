@@ -25,6 +25,7 @@
         </nav>
         <!-- NAVBAR -->
 
+	<script src="../js/script.js"></script>
         <!-- MAIN -->
         <main>
             <div class="head-title">
@@ -59,7 +60,7 @@
     </section>
     <!-- CONTENT -->
 
-    <script src="../new/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
 <?php } ?>
