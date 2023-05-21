@@ -14,7 +14,7 @@
     $user = Account::getUserWithId($db, $session->getId());
     
     require_once(__DIR__ . '/../templates/sidebar_template.php');
-    require_once(__DIR__ . '/../templates/agentdashboard_template.php');
+    require_once(__DIR__ . '/../templates/dashboard_template.php');
 
     draw_head();
     switch($user->role){
