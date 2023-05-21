@@ -36,7 +36,7 @@
 		
 		<ul class="side-menu top">
 			<li>
-				<a href="../pages/ticket_central.php">
+				<a href="../pages/ticket_central.php?page=1">
 					<i class='bx bxs-category' ></i>
 					<span class="text">Ticket Central</span>
 				</a>
@@ -74,7 +74,7 @@
 		
 		<ul class="side-menu top">
 			<li>
-				<a href="../pages/ticket_central.php">
+				<a href="../pages/ticket_central.php?page=1">
 					<i class='bx bxs-category' ></i>
 					<span class="text">Ticket Central</span>
 				</a>
