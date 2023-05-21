@@ -7,9 +7,11 @@ class Ticket
     public string $subject;
     public string $description;
     public string $department;
+    public string $priority;
+    public string $status;
     public DateTime $datecreated;
 
-    public function __construct(int $id, int $authorid, int $agentid, string $subject, string $description, string $department, DateTime $datecreated)
+    public function __construct(int $id, int $authorid, int $agentid, string $subject, string $description, string $department, string $priority, string $status, DateTime $datecreated)
     {
         $this->id = $id;
         $this->authorid = $authorid;
@@ -17,6 +19,8 @@ class Ticket
         $this->subject = $subject;
         $this->description = $description;
         $this->department = $department;
+        $this->priority = $priority;
+        $this->status = $status;
         $this->datecreated = $datecreated;
     }
 
@@ -33,18 +37,42 @@ class Ticket
 
         if ($ticketId) {
             $stmt = $db->prepare('
-                select datecreated from Ticket
+                select * from Ticket
                 where id = ?
             ');
             $stmt->execute([$ticketId]);
 
-            $datecreated = $stmt->fetchColumn();
+            $ticket = $stmt->fetch();
 
-            return new Ticket($ticketId, $authorid, $agentid, $subject, $description, $department, new DateTime($datecreated));
+            if ($ticket) {
+                return new Ticket(
+                    $ticket['id'], $ticket['author'], $ticket['agent'], $ticket['subject'], $ticket['description'], $ticket['department'], $ticket['priority'], $ticket['status'], new DateTime($ticket['datecreated'])
+                );
+            }
         }
 
         return null;
     }
+
+    public static function getTicket(PDO $db, int $ticketId): ?Ticket
+    {
+        $stmt = $db->prepare('
+            select * from Ticket
+            where id = ?
+        ');
+        $stmt->execute([$ticketId]);
+
+        $ticket = $stmt->fetch();
+
+        if ($ticket) {
+            return new Ticket(
+                $ticket['id'], $ticket['author'], $ticket['agent'] == null? 0 : $ticket['agent'], $ticket['subject'], $ticket['description'], $ticket['department'], $ticket['priority'], $ticket['status'], new DateTime($ticket['datecreated'])
+            );
+        } else {
+            return null;
+        }
+    }
 }
+
 
 ?>

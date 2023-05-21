@@ -1,3 +1,5 @@
+pragma foreign_keys = on;
+
 drop table if exists Account;
 drop table if exists Ticket;
 
@@ -20,5 +22,7 @@ create table Ticket
     subject varchar(255),
     description varchar(255),
     department varchar(255),
-    datecreated timestamp default current_timestamp
+    priority varchar(255),
+    status varchar(255),
+    datecreated timestamp default (datetime('now', 'localtime'))
 );
