@@ -1,106 +1,72 @@
-<?php function draw_assigned_tickets () { ?>
+<?php
+function draw_assigned_tickets(PDO $db, $session)
+{
+    $id = $session->getId();
+    $stmt = $db->prepare('
+        SELECT Account.name, Account.username, Ticket.id, Ticket.subject, Ticket.department, Ticket.datecreated, Ticket.status
+        FROM Account, Ticket
+        WHERE Account.id = Ticket.agent
+        AND Account.id = ?
+    ');
+    $stmt->execute([$id]);
+    $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
     <section id="content">
-		<!-- NAVBAR -->
-		<nav>
-			<i class='bx bx-menu' ></i>
-			<form action="#">
-				
-			</form>
-			<label></label>
-            <a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="../pages/profile.php" class="profile">
-				<img src="img/people.png">
-			</a>
-		</nav>
-		<!-- NAVBAR -->
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
 
-		<!-- MAIN -->
-		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1>Assigned Tickets</h1>
-				</div>
-			</div>
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3></h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Ticket</th>
-								<th>Department</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>Password Reset</td>
-								<td>Technical Support</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Closed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>Jane Smith</p>
-								</td>
-								<td>Account Creation</td>
-								<td>Technical Support</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Open</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>Website Error</td>
-								<td>Technical Support</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Assigned</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>Order Status</td>
-								<td>Order Fulfillment</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Open</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>Data Access Issue</td>
-								<td>Technical Support</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Closed</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				
-			</div>
-		</main>
-		<!-- MAIN -->
-	</section>
+            </form>
+            <label></label>
+            <a href="../pages/profile.php" class="profile">
+                <img src="img/people.png">
+            </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Assigned Tickets</h3>
+                        <i class='bx bx-search'></i>
+                        <i class='bx bx-filter'></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Subject</th>
+                                <th>Department</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($tickets as $ticket) { ?>
+                                <tr id="ticket" onclick="window.location.href='ticket_details.php?id=<?php echo $ticket['id']; ?>'">
+                                    <td>
+                                        <img src="img/people.png">
+                                        <p><?php echo $ticket['name'] . ' (' . $ticket['username'] . ')'; ?></p>
+                                    </td>
+                                    <td><?php echo $ticket['subject']; ?></td>
+                                    <td><?php echo $ticket['department']; ?></td>
+                                    <td><?php echo $ticket['datecreated']; ?></td>
+                                    <td><span class="status <?php echo strtolower($ticket['status']); ?>"><?php echo $ticket['status']; ?></span></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+        <!-- MAIN -->
+    </section>
     <script src="../new/script.js"></script>
 </body>
+
 </html>
 <?php } ?>

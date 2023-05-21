@@ -907,3 +907,7 @@ label {
 		min-width: 420px;
 	}
 }
+
+#ticket:hover{
+	cursor: pointer;
+}

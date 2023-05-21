@@ -29,7 +29,7 @@
             header('Location: authentication.php');
             break;
     }
-    draw_assigned_tickets();
+    draw_assigned_tickets($db, $session);
 ?>
 
 
