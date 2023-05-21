@@ -22,5 +22,4 @@
     else $session->addMessage('error', 'There is already an account with this username or email');
 
     header('Location: /../pages/authentication.php');
-
 ?>

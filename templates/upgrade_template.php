@@ -38,7 +38,7 @@
 									<p>John Doe</p>
 								</td>
 								<td>johndoe1234@gmail.com</td>
-								<td><span class="status completed">Agent</span></td>
+								<td><span class="status role">Agent</span></td>
                                 <td><i class='bx bx-pencil' ></i></td>
 							</tr>
 							<tr>
@@ -47,7 +47,7 @@
 									<p>Jane Smith</p>
 								</td>
 								<td>johndoe1234@gmail.com</td>
-								<td><span class="status pending">Admin</span></td>
+								<td><span class="status role">Admin</span></td>
                                 <td><i class='bx bx-pencil' ></i></td>
 							</tr>
 							<tr>
@@ -56,7 +56,7 @@
 									<p>John Doe</p>
 								</td>
 								<td>johndoe1234@gmail.com</td>
-								<td><span class="status process">Client</span></td>
+								<td><span class="status role">Client</span></td>
                                 <td><i class='bx bx-pencil' ></i></td>
 							</tr>
 							<tr>
@@ -65,7 +65,7 @@
 									<p>John Doe</p>
 								</td>
 								<td>johndoe1234@gmail.com</td>
-								<td><span class="status pending">Admin</span></td>
+								<td><span class="status role">Admin</span></td>
                                 <td><i class='bx bx-pencil' ></i></td>
 							</tr>
 							<tr>
@@ -74,7 +74,7 @@
 									<p>John Doe</p>
 								</td>
 								<td>johndoe1234@gmail.com</td>
-								<td><span class="status completed">Agent</span></td>
+								<td><span class="status role">Agent</span></td>
                                 <td><i class='bx bx-pencil' ></i></td>
 							</tr>
 						</tbody>

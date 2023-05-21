@@ -1,78 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link
-	rel="icon"
-	type="image/png"
-	sizes="32x32"
-	href="./assets/coding.png"
-  />
-	<!-- Boxicons -->
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<!-- My CSS -->
-	<link rel="stylesheet" href="departments.css">
-
-	<title>QuickFix - Departments</title>
-</head>
-<body>
-
-
-	<!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="#" class="brand">
-			<img src="assets/logoo.png" alt="Logo">
-			<span class="text">QUICKFIX</span>
-		</a>
-		
-		<ul class="side-menu top">
-			<li class="active">
-				<a href="#">
-					<i class='bx bxs-category' ></i>
-					<span class="text">Ticket Central</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bx-file' ></i>
-					<span class="text">Assigned Tickets</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-help-circle' ></i>
-					<span class="text">FAQ</span>
-				</a>
-			</li>
-		</ul>
-        <ul class="side-menu top">
-			<li>
-				<a href="#">
-					<i class='bx bxs-group' ></i>
-					<span class="text">User Roles</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-building' ></i>
-					<span class="text">Departments</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Administration</span>
-				</a>
-			</li>
-		</ul>
-	</section>
-	<!-- SIDEBAR -->
-
-
-
-	<!-- CONTENT -->
-	<section id="content">
+<?php function draw_admin_departments () { ?>
+    <section id="content">
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
@@ -333,9 +260,7 @@
 		</main>
 		<!-- MAIN -->
 	</section>
-	<!-- CONTENT -->
-	
-
-	<script src="script.js"></script>
+    <script src="../new/script.js"></script>
 </body>
 </html>
+<?php } ?>
