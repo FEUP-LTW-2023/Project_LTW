@@ -1,7 +1,6 @@
 <?php
     declare(strict_types = 1);
 
-    require_once(__DIR__ . '/../templates/global_template.php');
     require_once(__DIR__ . '/../templates/auth_template.php');
 
     draw_head();
@@ -24,4 +23,9 @@
         <title>Authentication</title>
     </head>
     <body>
+<?php } ?>
+
+<?php function draw_footer() { ?>
+    </body>
+    </html>
 <?php } ?>
