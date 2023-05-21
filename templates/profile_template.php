@@ -12,7 +12,7 @@ function draw_profile(Session $session, PDO $db, int $id)
             </form>
             <label></label>
             <a href="../pages/profile.php" class="profile">
-                <img src="../new/img/people.png">
+                <img src="../assets/user.png">
             </a>
         </nav>
         <!-- NAVBAR -->
@@ -22,7 +22,7 @@ function draw_profile(Session $session, PDO $db, int $id)
 
             <div class="card">
                 <div class="card-image">
-                    <img src="../new/img/pic.jpg" alt="Profile image">
+                    <img src="../assets/user.png" alt="Profile image">
                 </div>
                 <p class="name">
                     <?php echo Account::getUserWithId($db, $id)->name; ?>

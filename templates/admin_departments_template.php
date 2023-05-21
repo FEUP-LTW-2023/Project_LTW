@@ -11,7 +11,7 @@ function draw_admin_departments(PDO $db)
             </form>
             <label></label>
             <a href="../pages/profile.php" class="profile">
-                <img src="img/people.png">
+                <img src="../assets/user.png">
             </a>
         </nav>
         <!-- NAVBAR -->
@@ -59,7 +59,6 @@ function draw_admin_departments(PDO $db)
                                 foreach ($agents as $agent) {
                                     echo "<tr>
                                             <td>
-                                                <img src='img/people.png'>
                                                 <p>{$agent['name']} ({$agent['username']})</p>
                                             </td>
                                             <td>{$agent['email']}</td>

@@ -10,7 +10,7 @@
       </form>
       <label></label>
       <a href="../pages/profile.php" class="profile">
-        <img src="../new/img/people.png">
+        <img src="../assets/user.png">
       </a>
     </nav>
     <!-- NAVBAR -->
