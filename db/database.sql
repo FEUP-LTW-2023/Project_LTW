@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS AgentDepartment (
 
 CREATE TABLE IF NOT EXISTS TicketComment(
     ticketid INTEGER REFERENCES Ticket(id),
-    commentauthor INTEGER REFERENCES Account(id),
+    authorid INTEGER REFERENCES Account(id),
     comment VARCHAR(255)
 );
 
