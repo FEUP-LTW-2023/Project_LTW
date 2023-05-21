@@ -9,18 +9,26 @@
 
     $db = getdbconnection();
 
-    $user = Account::login($db, $_POST['usernameemail'], $_POST['password']);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $usernameEmail = $_POST['usernameemail'];
+        $password = $_POST['password'];
 
-    if($user){
-        $session->setId(intval($user->id));
-        $session->setUsername($user->username);
-        $session->setEmail($user->email);
-        $session->setName($user->name);
-        $session->setRole($user->role);
-        $session->addMessage('success', 'Login successful!');
+        $user = Account::login($db, $usernameEmail, $password);
+
+        if ($user) {
+            $session->setId(intval($user->id));
+            $session->setUsername($user->username);
+            $session->setEmail($user->email);
+            $session->setName($user->name);
+            $session->setRole($user->role);
+            $session->addMessage('success', 'Login successful!');
+            header('Location: /../pages/profile.php');
+            exit();
+        } else {
+            $session->addMessage('error', 'Username/email or password is incorrect.');
+        }
     }
-    else $session->addMessage('error', 'Email/username or password wrong.');
 
-    header('Location: /../pages/profile.php');
+    header('Location: /../pages/authentication.php');
 
 ?>
