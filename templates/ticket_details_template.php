@@ -34,28 +34,37 @@ function draw_ticket_details(PDO $db, Ticket $ticket)
                     <table>
                         <!-- ...existing code... -->
                         <div class="details-section">
-                            <div class="client-info">
-                                <?php
-                                $user = Account::getUserWithId($db, $ticket->authorid);
-                                ?>
-                                <a href="../pages/profile.php?id=<?php echo $user->id; ?>">
-                                    <img src="../new/img/people.png" alt="Client Profile Photo">
-                                    <h2>
-                                        <?php echo $user->name . ' (' . $user->username . ')'; ?>
-                                    </h2>
-                                </a>
-                            </div>
+                            <h2>Description</h2>
+                            <p><?php echo $ticket->description; ?></p>
+                            <p class="date"><?php echo $ticket->datecreated->format('F d, Y \a\t h:i A'); ?></p>
                         </div>
 
-                        <div class="details-section">
-                            <h2>Description</h2>
-                            <p>
-                                <?php echo $ticket->description; ?>
-                            </p>
-                            <p class="date">
-                                <?php echo $ticket->datecreated->format('F d, Y \a\t h:i A'); ?>
-                            </p>
-                        </div>
+                        <?php
+                        $comments = TicketComment::getCommentsForTicket($db, $ticket->id);
+
+                        if (!empty($comments)) :
+                        ?>
+                            <div class="comment-section">
+                                <h2>Comments</h2>
+                                <?php foreach ($comments as $comment) : ?>
+                                    <div class="comment">
+                                        <div class="comment-author">
+                                            <?php
+                                            $commentAuthor = Account::getUserWithId($db, $comment->commentauthor);
+                                            ?>
+                                            <a href="../pages/profile.php?id=<?php echo $commentAuthor->id; ?>">
+                                                <img src="../new/img/people.png" alt="Comment Author Profile Photo">
+                                                <h3><?php echo $commentAuthor->name . ' (' . $commentAuthor->username . ')'; ?></h3>
+                                            </a>
+                                        </div>
+                                        <div class="comment-content">
+                                            <p><?php echo $comment->comment; ?></p>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
                         <div class="comment-section">
                             <br>
                             <label for="comment">Add a Reply:</label>
