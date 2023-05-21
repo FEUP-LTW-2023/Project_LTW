@@ -8,7 +8,8 @@
     
     $db = getdbconnection();
     $session = new Session();
-    $user = Account::getUserWithId($db, $session->getId());
+    if($session->isLoggedIn()) $user = Account::getUserWithId($db, $session->getId());
+    else header('Location: authentication.php');
 
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/new_ticket_template.php');
@@ -25,7 +26,9 @@
             draw_admin_sidebar();
             break;
     }
-    draw_new_ticket();
+    draw_new_ticket($db);
+    $ticketId = $db->lastInsertId();
+    header("Location: ../pages/ticket_details.php?id=$ticketId");
 ?>
 
 

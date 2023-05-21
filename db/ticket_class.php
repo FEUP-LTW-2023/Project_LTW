@@ -46,7 +46,7 @@ class Ticket
 
             if ($ticket) {
                 return new Ticket(
-                    $ticket['id'], $ticket['author'], $ticket['agent'], $ticket['subject'], $ticket['description'], $ticket['department'], $ticket['priority'], $ticket['status'], new DateTime($ticket['datecreated'])
+                    $ticket['id'], $ticket['author'], $ticket['agent'], $ticket['subject'], $ticket['description'], $ticket['department'], $ticket['priority'] == null? 'None' : $ticket['priority'], $ticket['status'] == nulL? 'None' : $ticket['status'], new DateTime($ticket['datecreated'])
                 );
             }
         }
@@ -66,7 +66,7 @@ class Ticket
 
         if ($ticket) {
             return new Ticket(
-                $ticket['id'], $ticket['author'], $ticket['agent'] == null? 0 : $ticket['agent'], $ticket['subject'], $ticket['description'], $ticket['department'], $ticket['priority'], $ticket['status'], new DateTime($ticket['datecreated'])
+                $ticket['id'], $ticket['author'], $ticket['agent'] == null? 0 : $ticket['agent'], $ticket['subject'], $ticket['description'], $ticket['department'] == null? '' : $ticket['department'], $ticket['priority'] == null? '' : $ticket['priority'], $ticket['status'] == null? '' : $ticket['status'], new DateTime($ticket['datecreated'])
             );
         } else {
             return null;
