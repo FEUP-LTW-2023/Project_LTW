@@ -18,7 +18,7 @@
     <!-- MAIN -->
     <main>
       <div id="faq">
-        <img src="/../images/faq.png">
+        <img src="../images/faq.png">
         <section>
           <header>
             <h1>Frequently Asked Questions</h1>
@@ -93,7 +93,7 @@
     <!-- MAIN -->
   </section>
   <!-- CONTENT -->
-  <script src="../new/script.js"></script>
+  <script src="../js/script.js"></script>
   </body>
 
   </html>

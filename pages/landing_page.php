@@ -19,7 +19,7 @@
                 rel="icon"
                 type="image/png"
                 sizes="32x32"
-                href="assets/coding.png"
+                href="../assets/coding.png"
             />
 
             <link rel="stylesheet" href="../style/style.css" />

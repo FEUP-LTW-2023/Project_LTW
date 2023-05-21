@@ -173,7 +173,7 @@ function draw_ticket_details(Session $session, PDO $db, Ticket $ticket)
     </section>
     <!-- CONTENT -->
 
-    <script src="../new/script.js"></script>
+    <script src="../js/script.js"></script>
     </body>
 
     </html>
