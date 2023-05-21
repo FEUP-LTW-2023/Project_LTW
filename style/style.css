@@ -1075,6 +1075,9 @@ ul.comment-section{
 	border-radius: 15px;
 	padding: 0.5em;
 }
+select{
+	background-color: #171e25;
+}
 
 /* Media query para telas divididas em duas janelas */
 @media screen and (max-width: 1280px) {

@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/../db/account_class.php');
 
-function draw_ticket_details(Session $session, PDO $db, Ticket $ticket)
+function draw_edit_ticket(Session $session, PDO $db, Ticket $ticket)
 {
     $stmt = $db->prepare('
     SELECT Priority.name AS priority_name, Status.name AS status_name, Department.name AS department_name
@@ -61,7 +61,9 @@ function draw_ticket_details(Session $session, PDO $db, Ticket $ticket)
                 <div class="order">
                     <table>
                         <div class="details-section">
-                            <h1><?php echo $name.' ('.$username.')'; ?></h1>
+                            <h1>
+                                <?php echo $name . ' (' . $username . ')'; ?>
+                            </h1>
                         </div>
                         <div class="details-section">
                             <h2>Description</h2>
@@ -128,11 +130,6 @@ function draw_ticket_details(Session $session, PDO $db, Ticket $ticket)
                 <div class="todo">
                     <div class="head">
                         <h3>Ticket Details</h3>
-                        <?php if ($session->getRole() === 'Agent' || $session->getRole() === 'Admin'): ?>
-                            <a href="../pages/edit_ticket.php?id=<?php echo $ticket->id; ?>">
-                                <i class='bx bx-pencil'></i>
-                            </a>
-                        <?php endif; ?>
                     </div>
                     <ul class="todo-list">
                         <li class="cor">
@@ -141,42 +138,75 @@ function draw_ticket_details(Session $session, PDO $db, Ticket $ticket)
                             </p>
 
                         </li>
-                        <li class="cor">
-                            <p>Priority: <span id="priority">
-                                    <?php echo $priority; ?>
-                                </span></p>
-
-                        </li>
-                        <li class="cor">
-                            <p>Status: <span id="status">
-                                    <?php echo $status; ?>
-                                </span></p>
-
-                        </li>
-                        <li class="cor">
-                            <p>Department: <span id="department">
-                                    <?php echo $department; ?>
-                                </span></p>
-
-                        </li>
-                        <li class="cor">
-                            <p>Assigned Agent: <span id="agent">
-                                    <?php
-                                    if ($ticket->agentid == 0)
-                                        echo 'None';
-                                    else {
-                                        $agent = Account::getUserWithId($db, $ticket->agentid);
-                                        echo $agent->name . ' (' . $agent->username . ')';
-                                    }
-                                    ?>
-                                </span></p>
-
-                        </li>
-                        <li class="cor">
-                            <p>Hashtags: #login #authentication #websiteissue</p>
-
-                        </li>
-
+                        <form action="../actions/edit_ticket.php" method="POST">
+                            <input type="hidden" name="ticketid" value="<?php echo $ticket->id; ?>">
+                            <li class="cor">
+                                <p>Priority:
+                                    <select name="priority">
+                                        <?php
+                                        $stmt = $db->prepare('SELECT name FROM Priority');
+                                        $stmt->execute();
+                                        $priorities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach ($priorities as $priorityOption) {
+                                            $selected = ($priorityOption['name'] === $priority) ? 'selected' : '';
+                                            echo '<option value="' . $priorityOption['name'] . '" ' . $selected . '>' . $priorityOption['name'] . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </p>
+                            </li>
+                            <li class="cor">
+                                <p>Status:
+                                    <select name="status">
+                                        <?php
+                                        $stmt = $db->prepare('SELECT name FROM Status');
+                                        $stmt->execute();
+                                        $statuses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach ($statuses as $statusOption) {
+                                            $selected = ($statusOption['name'] === $status) ? 'selected' : '';
+                                            echo '<option value="' . $statusOption['name'] . '" ' . $selected . '>' . $statusOption['name'] . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </p>
+                            </li>
+                            <li class="cor">
+                                <p>Department:
+                                    <select name="department">
+                                        <?php
+                                        $stmt = $db->prepare('SELECT name FROM Department');
+                                        $stmt->execute();
+                                        $departments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach ($departments as $departmentOption) {
+                                            $selected = ($departmentOption['name'] === $department) ? 'selected' : '';
+                                            echo '<option value="' . $departmentOption['name'] . '" ' . $selected . '>' . $departmentOption['name'] . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </p>
+                            </li>
+                            <?php if ($session->getRole() === 'Agent'): ?>
+                                <input type="hidden" name="agentid" value="<?php echo $ticket->agentid; ?>">
+                            <?php endif; ?>
+                            <?php if ($session->getRole() === 'Admin'): ?>
+                                <li class="cor">
+                                    <p>Assigned Agent:
+                                        <select name="agentid">
+                                            <?php
+                                            $stmt = $db->prepare('SELECT id, username FROM Account WHERE role = \'Agent\' OR role = \'Admin\';');
+                                            $stmt->execute();
+                                            $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach ($agents as $agent) {
+                                                $selected = ($agent['username'] === $ticket->agentid) ? 'selected' : '';
+                                                echo '<option value="' . $agent['id'] . '" ' . $selected . '>' . $agent['username'] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </p>
+                                </li>
+                            <?php endif; ?>
+                            <button type="submit">Save</button>
+                        </form>
                     </ul>
                 </div>
             </div>

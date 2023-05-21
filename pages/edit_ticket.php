@@ -2,21 +2,22 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../session.php');
-    require_once(__DIR__ . '/../db/connection.php');
     require_once(__DIR__ . '/../db/account_class.php');
-    
-    
-    $db = getdbconnection();
+    require_once(__DIR__ . '/../db/connection.php');
+    require_once(__DIR__ . '/../db/ticket_class.php');
     $session = new Session();
+    $db = getdbconnection();
     
     if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
 
     $user = Account::getUserWithId($db, $session->getId());
+
+    $ticket = Ticket::getTicket($db, intval($_GET['id']));
     
     require_once(__DIR__ . '/../templates/sidebar_template.php');
-    require_once(__DIR__ . '/../templates/ticket_central_template.php');
+    require_once(__DIR__ . '/../templates/edit_ticket_template.php');
 
-    draw_head();
+    draw_head($ticket);
     switch($user->role){
         case 'Client':
             draw_client_sidebar();
@@ -31,11 +32,11 @@
             header('Location: authentication.php');
             break;
     }
-    draw_ticket_central($db);
+    draw_edit_ticket($session, $db, $ticket);
 ?>
 
 
-<?php function draw_head() { ?>
+<?php function draw_head(Ticket $ticket) { ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -45,14 +46,14 @@
         rel="icon"
         type="../new/image/png"
         sizes="32x32"
-        href="../assets/coding.png"
+        href="/assets/coding.png"
         />
         <!-- Boxicons -->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         <!-- My CSS -->
         <link rel="stylesheet" href="../style/style.css">
 
-        <title>QuickFix - Ticket Central</title>
+        <title><?php echo $ticket->subject ?></title>
     </head>
     <body>
 <?php } ?>
