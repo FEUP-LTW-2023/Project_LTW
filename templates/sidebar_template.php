@@ -4,27 +4,20 @@
 			<img src="../new/assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
-		
 		<ul class="side-menu top">
-			<li>
-				<a href="../pages/dashboard.php">
-					<i class='bx bxs-category' ></i>
-					<span class="text">Ticket Central</span>
-				</a>
-			</li>
 			<li>
 				<a href="../pages/client_tickets.php">
 					<i class='bx bx-file' ></i>
 					<span class="text">My Tickets</span>
 				</a>
 			</li>
-		</ul>
-		<ul class="side-menu top">
 			<li>
 				<a href="/../pages/faq.php">
 					<i class='bx bxs-help-circle' ></i>
 					<span class="text">FAQ</span>
 				</a>
+			</li>
+			<li>
 				<a href="../actions/logout.php">
 					<i class="bx bx-log-out"></i>
 					<span class="text">Logout</span>
@@ -43,7 +36,7 @@
 		
 		<ul class="side-menu top">
 			<li>
-				<a href="../pages/dashboard.php">
+				<a href="../pages/ticket_central.php">
 					<i class='bx bxs-category' ></i>
 					<span class="text">Ticket Central</span>
 				</a>
@@ -61,6 +54,8 @@
 					<i class='bx bxs-help-circle' ></i>
 					<span class="text">FAQ</span>
 				</a>
+			</li>
+			<li>
 				<a href="../actions/logout.php">
 					<i class="bx bx-log-out"></i>
 					<span class="text">Logout</span>
@@ -79,7 +74,7 @@
 		
 		<ul class="side-menu top">
 			<li>
-				<a href="../pages/dashboard.php">
+				<a href="../pages/ticket_central.php">
 					<i class='bx bxs-category' ></i>
 					<span class="text">Ticket Central</span>
 				</a>
@@ -113,10 +108,12 @@
 		</ul>
 		<ul class="side-menu top">
 			<li>
-				<a href="../pages/faq.php">
+				<a href="/../pages/faq.php">
 					<i class='bx bxs-help-circle' ></i>
 					<span class="text">FAQ</span>
 				</a>
+			</li>
+			<li>
 				<a href="../actions/logout.php">
 					<i class="bx bx-log-out"></i>
 					<span class="text">Logout</span>

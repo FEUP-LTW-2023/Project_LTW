@@ -35,13 +35,15 @@ function draw_ticket_details(PDO $db, Ticket $ticket)
                         <!-- ...existing code... -->
                         <div class="details-section">
                             <div class="client-info">
-                                <img src="../new/img/people.png" alt="Client Profile Photo">
-                                <h2>
-                                    <?php
-                                    $user = Account::getUserWithId($db, $ticket->authorid);
-                                    echo $user->name . ' (' . $user->username . ')';
-                                    ?>
-                                </h2>
+                                <?php
+                                $user = Account::getUserWithId($db, $ticket->authorid);
+                                ?>
+                                <a href="../pages/profile.php?id=<?php echo $user->id; ?>">
+                                    <img src="../new/img/people.png" alt="Client Profile Photo">
+                                    <h2>
+                                        <?php echo $user->name . ' (' . $user->username . ')'; ?>
+                                    </h2>
+                                </a>
                             </div>
                         </div>
 
@@ -98,7 +100,11 @@ function draw_ticket_details(PDO $db, Ticket $ticket)
                                     echo 'None';
                                 else {
                                     $agent = Account::getUserWithId($db, $ticket->agentid);
-                                    echo $agent->name . ' (' . $agent->username . ')';
+                                    ?>
+                                    <a href="../pages/profile.php?id=<?php echo $agent->id; ?>">
+                                        <?php echo $agent->name . ' (' . $agent->username . ')'; ?>
+                                    </a>
+                                <?php
                                 }
                                 ?>
                             </span></p>
@@ -123,3 +129,4 @@ function draw_ticket_details(PDO $db, Ticket $ticket)
 
     </html>
 <?php } ?>
+
