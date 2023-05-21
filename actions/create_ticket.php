@@ -9,7 +9,7 @@
 
     $db = getdbconnection();
 
-    $ticket = Ticket::createTicket($db, $_POST['authorid'], $_POST['agentid'], $_POST['title'], $_POST['description']);
+    $ticket = Ticket::createTicket($db, $session->getId(), 0, $_POST['subject'], $_POST['description'], $_POST['department']);
 
     if($ticket){
         $session->addMessage('success', 'Ticket created successfully!');

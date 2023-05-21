@@ -69,8 +69,29 @@ class Account
         return null;
     }
 
+    public static function getUserWithId(PDO $db, int $id): ?Account
+    {
+        $stmt = $db->prepare('
+            select id, username, email, name, role
+            from Account
+            where id = ?
+        ');
 
-    public static function getUser(PDO $db, string $username): ?Account
+        $stmt->execute([$id]);
+        $account = $stmt->fetch();
+
+        return $account ? new Account(
+            $id,
+            $account['username'],
+            $account['email'],
+            $account['name'],
+            $account['role'] == null? "" : $account['role']
+        )
+            : null;
+    }
+
+
+    public static function getUserWithUsername(PDO $db, string $username): ?Account
     {
         $stmt = $db->prepare('
             select id, username, email, name, role

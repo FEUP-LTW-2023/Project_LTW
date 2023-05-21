@@ -1,4 +1,10 @@
-<?php function draw_ticket_details() { ?>
+<?php
+
+require_once(__DIR__ . '/../db/account_class.php');
+
+
+function draw_ticket_details(PDO $db, Ticket $ticket)
+{ ?>
 
     <!-- CONTENT -->
     <section id="content">
@@ -19,7 +25,9 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Website Login Issue</h1>
+                    <h1>
+                        <?php echo $ticket->subject; ?>
+                    </h1>
                 </div>
             </div>
             <div class="table-data">
@@ -29,17 +37,21 @@
                         <div class="details-section">
                             <div class="client-info">
                                 <img src="../new/img/people.png" alt="Client Profile Photo">
-                                <h2>John Doe</h2>
+                                <h2>
+                                    <?php $user = Account::getUserWithId($db, $ticket->authorid);
+                                    echo $user->name; ?>
+                                </h2>
                             </div>
                         </div>
 
                         <div class="details-section">
                             <h2>Description</h2>
-                            <p>I'm having trouble logging into the website. I've tried multiple times, but it keeps showing
-                                an error message saying "Invalid username or password." Please help me resolve this issue as
-                                soon as possible.</p>
-                            <p class="date">May 15, 2023 at 3:00 PM</p>
-
+                            <p>
+                                <?php echo $ticket->description; ?>
+                            </p>
+                            <p class="date">
+                                <?php echo $ticket->datecreated->format('F d, Y \a\t h:i A'); ?>
+                            </p>
                         </div>
                         <div class="comment-section">
                             <br>
@@ -61,23 +73,36 @@
                     </div>
                     <ul class="todo-list">
                         <li class="cor">
-                            <p>Ticket ID: #5436</p>
+                            <p>Ticket ID: #
+                                <?php echo $ticket->id ?>
+                            </p>
 
                         </li>
                         <li class="cor">
-                            <p>Priority: High</p>
+                            <p>Priority: <?php echo $ticket->priority; ?></p>
 
                         </li>
                         <li class="cor">
-                            <p>Status: Assigned</p>
+                            <p>Status: <?php echo $ticket->status; ?></p>
 
                         </li>
                         <li class="cor">
-                            <p>Department: IT Support</p>
+                            <p>Department:
+                                <?php echo $ticket->department ?>
+                            </p>
 
                         </li>
                         <li class="cor">
-                            <p>Assigned Agent: Jane Smith</p>
+                            <p>Assigned Agent:
+                                <?php
+                                if ($ticket->agentid == 0)
+                                    echo 'None';
+                                else {
+                                    $agent = Account::getUserWithId($db, $ticket->agentid);
+                                    echo $agent->name;
+                                }
+                                ?>
+                            </p>
 
                         </li>
                         <li class="cor">

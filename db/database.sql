@@ -1,3 +1,5 @@
+pragma foreign_keys = on;
+
 drop table if exists Account;
 drop table if exists Ticket;
 
@@ -17,7 +19,10 @@ create table Ticket
     id integer primary key autoincrement not null,
     author integer not null references Account(id),
     agent integer references Account(id),
-    title varchar(255),
+    subject varchar(255),
     description varchar(255),
-    datecreated timestamp default current_timestamp
+    department varchar(255),
+    priority varchar(255),
+    status varchar(255),
+    datecreated timestamp default (datetime('now', 'localtime'))
 );
