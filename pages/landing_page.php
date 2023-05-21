@@ -22,7 +22,7 @@
                 href="assets/coding.png"
             />
 
-            <link rel="stylesheet" href="../style/style2.css" />
+            <link rel="stylesheet" href="../style/style.css" />
 
             <title>QuickFix</title>
         </head>
