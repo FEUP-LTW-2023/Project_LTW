@@ -3,10 +3,13 @@
 
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/admin_settings_template.php');
+    require_once(__DIR__ . '/../db/connection.php');
+
+    $db = getdbconnection();
 
     draw_head();
     draw_admin_sidebar();
-    draw_admin_settings();
+    draw_admin_settings($db);
 ?>
 
 

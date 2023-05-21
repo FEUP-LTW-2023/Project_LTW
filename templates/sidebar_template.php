@@ -21,11 +21,11 @@
 		</ul>
 		<ul class="side-menu top">
 			<li>
-				<a href="#">
+				<a href="/../pages/faq.php">
 					<i class='bx bxs-help-circle' ></i>
 					<span class="text">FAQ</span>
 				</a>
-				<a href="#">
+				<a href="../actions/logout.php">
 					<i class="bx bx-log-out"></i>
 					<span class="text">Logout</span>
 				</a>
@@ -57,11 +57,11 @@
 		</ul>
 		<ul class="side-menu top">
 			<li>
-				<a href="#">
+				<a href="/../pages/faq.php">
 					<i class='bx bxs-help-circle' ></i>
 					<span class="text">FAQ</span>
 				</a>
-				<a href="#">
+				<a href="../actions/logout.php">
 					<i class="bx bx-log-out"></i>
 					<span class="text">Logout</span>
 				</a>
@@ -117,7 +117,7 @@
 					<i class='bx bxs-help-circle' ></i>
 					<span class="text">FAQ</span>
 				</a>
-				<a href="#">
+				<a href="../actions/logout.php">
 					<i class="bx bx-log-out"></i>
 					<span class="text">Logout</span>
 				</a>

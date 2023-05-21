@@ -1,11 +1,31 @@
 <?php
     declare(strict_types = 1);
 
+    require_once(__DIR__ . '/../session.php');
+    require_once(__DIR__ . '/../db/connection.php');
+    require_once(__DIR__ . '/../db/account_class.php');
+    
+    
+    $db = getdbconnection();
+    $session = new Session();
+    $user = Account::getUserWithId($db, $session->getId());
+
+
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/client_tickets_template.php');
 
     draw_head();
-    draw_client_sidebar();
+    switch($user->role){
+        case 'Client':
+            draw_client_sidebar();
+            break;
+        case 'Agent':
+            draw_agent_sidebar();
+            break;
+        case 'Admin':
+            draw_admin_sidebar();
+            break;
+    }
     draw_client_tickets();
 ?>
 
@@ -25,7 +45,7 @@
         <!-- Boxicons -->
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         <!-- My CSS -->
-        <link rel="stylesheet" href="../style/style2.css">
+        <link rel="stylesheet" href="../new/tickets_client.css">
 
         <title>QuickFix - My Tickets</title>
     </head>
