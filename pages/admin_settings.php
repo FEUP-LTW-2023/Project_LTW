@@ -6,9 +6,21 @@
     require_once(__DIR__ . '/../db/connection.php');
 
     $db = getdbconnection();
+    $session = new Session();
+    $user = Account::getUserWithId($db, $session->getId());
 
     draw_head();
-    draw_admin_sidebar();
+    switch($user->role){
+        case 'Client':
+            draw_client_sidebar();
+            break;
+        case 'Agent':
+            draw_agent_sidebar();
+            break;
+        case 'Admin':
+            draw_admin_sidebar();
+            break;
+    }
     draw_admin_settings($db);
 ?>
 

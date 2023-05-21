@@ -3,9 +3,26 @@
 
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/admin_departments_template.php');
+    require_once(__DIR__ . '/../db/account_class.php');
+    require_once(__DIR__ . '/../db/connection.php');
+    require_once(__DIR__ . '/../session.php');
+
+    $session = new Session();
+    $db = getdbconnection();
+    $user = Account::getUserWithId($db, $session->getId());
 
     draw_head();
-    draw_admin_sidebar();
+    switch($user->role){
+        case 'Client':
+            draw_client_sidebar();
+            break;
+        case 'Agent':
+            draw_agent_sidebar();
+            break;
+        case 'Admin':
+            draw_admin_sidebar();
+            break;
+    }
     draw_admin_departments();
 ?>
 
