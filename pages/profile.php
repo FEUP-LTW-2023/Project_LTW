@@ -26,7 +26,7 @@
             draw_admin_sidebar();
             break;
     }
-    draw_profile($session);
+    draw_profile($session, $db, intval($_GET['id']));
 ?>
 
 

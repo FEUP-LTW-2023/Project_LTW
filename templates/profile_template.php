@@ -1,5 +1,5 @@
 <?php
-function draw_profile(Session $session)
+function draw_profile(Session $session, PDO $db, int $id)
 {
 ?>
     <!-- CONTENT -->
@@ -25,23 +25,25 @@ function draw_profile(Session $session)
                     <img src="../new/img/pic.jpg" alt="Profile image">
                 </div>
                 <p class="name">
-                    <?php echo $session->getName(); ?>
+                    <?php echo Account::getUserWithId($db, $id)->name; ?>
                 </p>
                 <p>
-                    <?php echo $session->getUsername(); ?>
+                    <?php echo Account::getUserWithId($db, $id)->username; ?>
                 </p>
                 <p>
-                    <?php echo $session->getEmail(); ?>
+                    <?php echo Account::getUserWithId($db, $id)->email; ?>
                 </p>
                 <p class="role">
-                    <?php echo $session->getRole(); ?>
+                    <?php echo Account::getUserWithId($db, $id)->role; ?>
                 </p>
-                <form action="/../actions/logout.php" method="post">
-                    <button id="logout" type="submit">Logout</button>
-                </form>
-                <a href="../pages/edit_profile.php" class="edit-profile">
-                    <i class='bx bx-pencil'></i> Edit Profile
-                </a>
+                <?php if ($session->getId() == $id) { ?>
+                    <form action="/../actions/logout.php" method="post">
+                        <button id="logout" type="submit">Logout</button>
+                    </form>
+                    <a href="../pages/edit_profile.php" class="edit-profile">
+                        <i class='bx bx-pencil'></i> Edit Profile
+                    </a>
+                <?php } ?>
             </div>
         </main>
         <!-- MAIN -->
