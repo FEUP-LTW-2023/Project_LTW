@@ -53,8 +53,7 @@
 									</a>                 
 								</td>
                                 <td><?php echo $user->email; ?></td>
-                                <td><span class="status role"><?php echo $user->role; ?></span></td>
-                                <td><i class='bx bx-pencil'></i></td>
+                                <td><span><?php echo $user->role; ?></span></td>
                             </tr>
                         <?php } ?>
                     </tbody>

@@ -124,4 +124,15 @@ INSERT INTO Ticket (author, agent, subject, description, department, priority, s
     (13, 8, 'Budget Approval Request', 'I need approval for a budget allocation request for an upcoming project.', 4, 3, 1),
     (14, 5, 'Hardware Malfunction', 'One of our office computers is not functioning properly. It might need a hardware repair.', 2, 3, 1),
     (15, 6, 'Employee Training Program', 'We would like to organize a training program for our employees. Please provide details and options.', 3, 2, 1),
-    (10, 5, 'Database Backup Issue', 'We encountered an error while performing the database backup. It needs immediate attention.', 2, 4, 1);
+    (10, 5, 'Database Backup Issue', 'We encountered an error while performing the database backup. It needs immediate attention.', 2, 4, 1),
+    (11, 6, 'New Product Inquiry', 'I would like to know more about your new product and its features.', 1, 1, 1),
+    (12, 7, 'Password Reset', 'I forgot my password and need assistance in resetting it.', 2, 3, 1),
+    (13, 8, 'Request for Invoice', 'I need a copy of the invoice for my recent purchase.', 4, 3, 1);
+
+INSERT INTO TicketComment (ticketid, authorid, comment) VALUES
+    (16, 9, "Thank you for reaching out. Our new product offers advanced features and improved performance. I will provide you with more details shortly."),
+    (16, 6, "You're welcome! I'm glad you're interested in our new product. I'll send you a brochure and answer any questions you may have."),
+    (17, 10, "I've been locked out of my account. Can someone help me reset my password?"),
+    (17, 5, "I apologize for the inconvenience. I will initiate the password reset process for your account. You'll receive an email with instructions."),
+    (18, 11, "Could you please send me the invoice for my recent purchase? I need it for accounting purposes."),
+    (18, 8, "Certainly! I'll locate the invoice and forward it to you via email.");

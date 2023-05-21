@@ -3,7 +3,11 @@ function draw_ticket_central(PDO $db)
 {
     // Retrieve all tickets from the database
     $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-    $query = "SELECT * FROM Ticket INNER JOIN Account ON Ticket.author = Account.id ORDER BY id DESC LIMIT " . (($page - 1) * 10) . ", 10";
+    $query = "SELECT Ticket.*, Account.name, Account.username, Department.name AS department_name, Status.name AS status_name FROM Ticket
+        INNER JOIN Account ON Ticket.author = Account.id
+        INNER JOIN Department ON Ticket.department = Department.id
+        INNER JOIN Status ON Ticket.status = Status.id
+        ORDER BY Ticket.id DESC LIMIT " . (($page - 1) * 10) . ", 10";
     $stmt = $db->query($query);
     $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -36,8 +40,6 @@ function draw_ticket_central(PDO $db)
                     <i class='bx bx-skip-previous' onclick="previousPage()"></i>
 					<span>Page <?php echo $page; ?></span>
 					<i class='bx bx-skip-next' onclick="nextPage()"></i>
-                    <i class='bx bx-search'></i>
-                    <i class='bx bx-filter'></i>
                 </div>
                 <table>
                     <thead>
@@ -57,9 +59,9 @@ function draw_ticket_central(PDO $db)
                                     <p><?php echo $ticket['name'] . " (" . $ticket['username'] . ")"; ?></p>
                                 </td>
                                 <td><?php echo $ticket['subject']; ?></td>
-                                <td><?php echo $ticket['department']; ?></td>
-                                <td><?php echo $ticket['datecreated']; ?></td>
-                                <td><?php echo $ticket['status']; ?></td>
+                                <td><?php echo $ticket['department_name']; ?></td>
+                                <td><?php echo  (new Datetime($ticket['datecreated']))->format('F d, Y \a\t h:i A'); ?></td>
+                                <td><?php echo $ticket['status_name']; ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>

@@ -22,15 +22,13 @@ function draw_admin_settings(PDO $db)
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Departments</h3>
-                        <td><button class="status pending simple-button">Create Departments</button></td>
+                        <h1>Departments</h1>
                     </div>
                     <table>
                         <tbody>
                         <?php foreach ($departments as $department) { ?>
                             <tr>
                                 <td><?php echo $department['name']; ?></td>
-                                <td><i class='bx bx-trash'></i></td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -38,15 +36,13 @@ function draw_admin_settings(PDO $db)
                 </div>
                 <div class="order">
                     <div class="head">
-                        <h3>Statuses</h3>
-                        <td><button class="status pending simple-button">Create Status</button></td>
+                        <h1>Statuses</h1>
                     </div>
                     <table>
                         <tbody>
                         <?php foreach ($statuses as $status) { ?>
                             <tr>
                                 <td><?php echo $status['name']; ?></td>
-                                <td><i class='bx bx-trash'></i></td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -54,15 +50,13 @@ function draw_admin_settings(PDO $db)
                 </div>
                 <div class="order">
                     <div class="head">
-                        <h3>Priorities</h3>
-                        <td><button class="status pending simple-button">Create Priority</button></td>
+                        <h1>Priorities</h1>
                     </div>
                     <table>
                         <tbody>
                         <?php foreach ($priorities as $priority) { ?>
                             <tr>
                                 <td><?php echo $priority['name']; ?></td>
-                                <td><i class='bx bx-trash'></i></td>
                             </tr>
                         <?php } ?>
                         </tbody>

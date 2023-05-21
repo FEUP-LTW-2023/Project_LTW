@@ -31,7 +31,7 @@
             header('Location: authentication.php');
             break;
     }
-    draw_client_tickets();
+    draw_client_tickets($db, $session);
 ?>
 
 
