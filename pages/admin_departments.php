@@ -29,7 +29,7 @@
             header('Location: authentication.php');
             break;
     }
-    draw_admin_departments();
+    draw_admin_departments($db);
 ?>
 
 
