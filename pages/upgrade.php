@@ -8,8 +8,11 @@
     
     $db = getdbconnection();
     $session = new Session();
-    $user = Account::getUserWithId($db, $session->getId());
 
+    if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
+
+    $user = Account::getUserWithId($db, $session->getId());
+    
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/upgrade_template.php');
 

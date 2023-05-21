@@ -11,8 +11,11 @@
     
     $db = getdbconnection();
     $session = new Session();
-    $user = Account::getUserWithId($db, $session->getId());
 
+    if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
+
+    $user = Account::getUserWithId($db, $session->getId());
+    
     $ticket = Ticket::getTicket($db, intval($_GET['id']));
 
 

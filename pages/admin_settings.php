@@ -4,9 +4,14 @@
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/admin_settings_template.php');
     require_once(__DIR__ . '/../db/connection.php');
+    require_once(__DIR__ . '/../db/account_class.php');
+    require_once(__DIR__ . '/../session.php');
 
     $db = getdbconnection();
     $session = new Session();
+    
+    if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
+
     $user = Account::getUserWithId($db, $session->getId());
 
     draw_head();
@@ -45,7 +50,7 @@
         <!-- My CSS -->
         <link rel="stylesheet" href="../style/style2.css">
 
-        <title>QuickFix - Settings Admin</title>
+        <title>QuickFix - Admin Settings</title>
     </head>
     <body>
 <?php } ?>

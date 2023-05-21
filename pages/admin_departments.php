@@ -9,6 +9,9 @@
 
     $session = new Session();
     $db = getdbconnection();
+
+    if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
+
     $user = Account::getUserWithId($db, $session->getId());
 
     draw_head();

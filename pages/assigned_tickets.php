@@ -9,8 +9,11 @@
 
     $session = new Session();
     $db = getdbconnection();
-    $user = Account::getUserWithId($db, $session->getId());
 
+    if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
+
+    $user = Account::getUserWithId($db, $session->getId());
+    
     draw_head();
     switch($user->role){
         case 'Client':
