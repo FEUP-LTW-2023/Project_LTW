@@ -26,7 +26,13 @@
             draw_admin_sidebar();
             break;
     }
-    draw_profile($session, $db, intval($_GET['id']));
+    if (!isset($_GET['id'])) {
+        $id = $session->getId();
+        header("Location: profile.php?id=$id");
+        exit();
+    } else {
+        draw_profile($session, $db, intval($_GET['id']));
+    }
 ?>
 
 
