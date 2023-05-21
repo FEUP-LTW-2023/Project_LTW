@@ -1,74 +1,126 @@
-pragma foreign_keys = on;
+PRAGMA foreign_keys = on;
 
-DROP TABLE IF EXISTS Account;
+DROP TABLE IF EXISTS TicketComment;
+DROP TABLE IF EXISTS AgentDepartment;
 DROP TABLE IF EXISTS Ticket;
+DROP TABLE IF EXISTS Account;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Status;
 DROP TABLE IF EXISTS Priority;
 
-
-create table if not exists Account
-(
-    id integer primary key autoincrement not null,
-    username varchar(255) not null unique,
-    email varchar(255) not null unique,
-    password nvarchar(255) not null,
-    name varchar(255),
-    role varchar(255) default 'Client'
+CREATE TABLE IF NOT EXISTS Account (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password NVARCHAR(255) NOT NULL,
+    name VARCHAR(255),
+    role VARCHAR(255) DEFAULT 'Client'
 );
 
-create table if not exists Ticket
-(
-    id integer primary key autoincrement not null,
-    author integer not null references Account(id),
-    agent integer references Account(id),
-    subject varchar(255),
-    description varchar(255),
-    department varchar(255),
-    priority varchar(255),
-    status varchar(255),
-    datecreated timestamp default (datetime('now', 'localtime'))
+CREATE TABLE IF NOT EXISTS Ticket (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    author INTEGER NOT NULL REFERENCES Account(id),
+    agent INTEGER REFERENCES Account(id),
+    subject VARCHAR(255),
+    description VARCHAR(255),
+    department VARCHAR(255),
+    priority VARCHAR(255),
+    status VARCHAR(255),
+    datecreated TIMESTAMP DEFAULT (datetime('now', 'localtime'))
 );
 
-create table if not exists Department(
-    id integer primary key autoincrement not null,
-    name varchar(255) not null
+CREATE TABLE IF NOT EXISTS Department (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL
 );
 
-create table if not exists Priority(
-    id integer primary key autoincrement not null,
-    name varchar(255) not null
+CREATE TABLE IF NOT EXISTS Priority (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL
 );
 
-create table if not exists Status(
-    id integer primary key autoincrement not null,
-    name varchar(255) not null
+CREATE TABLE IF NOT EXISTS Status (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL
 );
 
-create table if not exists AgentDepartment(
-    agentid integer references Account(id),
-    departmentid integer references Department(id)
+CREATE TABLE IF NOT EXISTS AgentDepartment (
+    agentid INTEGER REFERENCES Account(id),
+    departmentid INTEGER REFERENCES Department(id),
+    PRIMARY KEY (agentid, departmentid)
 );
 
-insert into Account (username, email, password, name, role) values ('pedroclient', 'pedro1@email.com', 'pedropass', 'Pedro Gomes', 'Client');
-insert into Account (username, email, password, name, role) values ('pedroagent', 'pedro2@email.com', 'pedropass', 'Pedro Gomes', 'Agent');
-insert into Account (username, email, password, name, role) values ('pedroadmin', 'pedro3@email.com', 'pedropass', 'Pedro Gomes', 'Admin');
+CREATE TABLE IF NOT EXISTS TicketComment(
+    ticketid INTEGER REFERENCES Ticket(id),
+    commentauthor INTEGER REFERENCES Account(id),
+    comment VARCHAR(255)
+);
 
-insert into Department(name) values ('IT Support');
-insert into Department(name) values ('Human Resources');
-insert into Department(name) values ('Finance');
-insert into Department(name) values ('Marketing');
-insert into Department(name) values ('Administration');
+INSERT INTO Department (name) VALUES
+    ('Marketing'),
+    ('IT Support'),
+    ('Human Resources'),
+    ('Finance'),
+    ('Administration');
 
-insert into AgentDepartment values(2,3);
-insert into AgentDepartment values(2,4);
+INSERT INTO Status (name) VALUES
+    ('Pending Agent'),
+    ('Assigned'),
+    ('In Progress'),
+    ('Closed');
 
-insert into Status(name) values ('Pending Agent');
-insert into Status(name) values ('Assigned');
-insert into Status(name) values ('In Progress');
-insert into Status(name) values ('Closed');
+INSERT INTO Priority (name) VALUES
+    ('Low'),
+    ('Medium'),
+    ('High'),
+    ('Urgent');
 
-insert into Priority(name) values ('Low');
-insert into Priority(name) values ('Medium');
-insert into Priority(name) values ('High');
-insert into Priority(name) values ('Urgent');
+INSERT INTO Account (username, email, password, name, role) VALUES
+    ('johndoe', 'john.doe@example.com', 'password1', 'John Doe', 'Admin'),
+    ('janedoe', 'jane.doe@example.com', 'password2', 'Jane Doe', 'Admin'),
+    ('mikesmith', 'mike.smith@example.com', 'password3', 'Mike Smith', 'Admin'),
+    ('emilyjones', 'emily.jones@example.com', 'password4', 'Emily Jones', 'Agent'),
+    ('davidwilson', 'david.wilson@example.com', 'password5', 'David Wilson', 'Agent'),
+    ('sarahthomas', 'sarah.thomas@example.com', 'password6', 'Sarah Thomas', 'Agent'),
+    ('jasonbrown', 'jason.brown@example.com', 'password7', 'Jason Brown', 'Agent'),
+    ('laurasmith', 'laura.smith@example.com', 'password8', 'Laura Smith', 'Agent'),
+    ('michaeljohnson', 'michael.johnson@example.com', 'password9', 'Michael Johnson', 'Client'),
+    ('amandawilliams', 'amanda.williams@example.com', 'password10', 'Amanda Williams', 'Client'),
+    ('chrisdavis', 'chris.davis@example.com', 'password11', 'Chris Davis', 'Client'),
+    ('jennymiller', 'jenny.miller@example.com', 'password12', 'Jenny Miller', 'Client'),
+    ('robertwilson', 'robert.wilson@example.com', 'password13', 'Robert Wilson', 'Client'),
+    ('kimberlyjones', 'kimberly.jones@example.com', 'password14', 'Kimberly Jones', 'Client'),
+    ('markthompson', 'mark.thompson@example.com', 'password15', 'Mark Thompson', 'Client'),
+    ('meganwhite', 'megan.white@example.com', 'password16', 'Megan White', 'Client'),
+    ('peterdavis', 'peter.davis@example.com', 'password17', 'Peter Davis', 'Client'),
+    ('lisawilson', 'lisa.wilson@example.com', 'password18', 'Lisa Wilson', 'Client'),
+    ('briantaylor', 'brian.taylor@example.com', 'password19', 'Brian Taylor', 'Client');
+
+INSERT INTO AgentDepartment (agentid, departmentid) VALUES
+    (4, 1), -- Emily Jones - Marketing
+    (4, 2), -- Emily Jones - IT Support
+    (5, 2), -- David Wilson - IT Support
+    (5, 3), -- David Wilson - Human Resources
+    (6, 3), -- Sarah Thomas - Human Resources
+    (6, 4), -- Sarah Thomas - Finance
+    (7, 1), -- Jason Brown - Marketing
+    (7, 3), -- Jason Brown - Human Resources
+    (8, 2), -- Laura Smith - IT Support
+    (8, 4); -- Laura Smith - Finance
+
+INSERT INTO Ticket (author, agent, subject, description, department, priority, status) VALUES
+    (9, 4, 'Website Login Issue', 'I am unable to log in to the website. It gives me an error message.', 'IT Support', 'High', 'Pending Agent'),
+    (10, 5, 'Email Not Sending', 'I have been trying to send emails, but they are not going through. Please help.', 'IT Support', 'Medium', 'Pending Agent'),
+    (11, 6, 'Employee Leave Request', 'One of our employees has submitted a leave request. Please review and approve it.', 'Human Resources', 'Low', 'Pending Agent'),
+    (12, 7, 'Marketing Campaign Ideas', 'We are planning a new marketing campaign and need some creative ideas.', 'Marketing', 'Medium', 'Pending Agent'),
+    (13, 8, 'Expense Reimbursement', 'I would like to request reimbursement for the expenses incurred during a business trip.', 'Finance', 'High', 'Pending Agent'),
+    (9, 4, 'Website Performance Issue', 'The website is running slow and taking a long time to load pages.', 'IT Support', 'Medium', 'Pending Agent'),
+    (14, 5, 'New Employee Onboarding', 'We have a new employee joining next week. Please assist with the onboarding process.', 'Human Resources', 'High', 'Pending Agent'),
+    (15, 6, 'Network Connectivity Problem', 'There seems to be an issue with the network connectivity in our office.', 'IT Support', 'Medium', 'Pending Agent'),
+    (10, 5, 'Software Installation Error', 'I am trying to install a software application, but it keeps showing an error during installation.', 'IT Support', 'Medium', 'Pending Agent'),
+    (11, 6, 'Employee Performance Evaluation', 'We need to conduct a performance evaluation for one of our employees. Please schedule a meeting.', 'Human Resources', 'Low', 'Pending Agent'),
+    (12, 7, 'Social Media Marketing Strategy', 'We are looking to revamp our social media marketing strategy. Any suggestions?', 'Marketing', 'Medium', 'Pending Agent'),
+    (13, 8, 'Budget Approval Request', 'I need approval for a budget allocation request for an upcoming project.', 'Finance', 'High', 'Pending Agent'),
+    (14, 5, 'Hardware Malfunction', 'One of our office computers is not functioning properly. It might need a hardware repair.', 'IT Support', 'High', 'Pending Agent'),
+    (15, 6, 'Employee Training Program', 'We would like to organize a training program for our employees. Please provide details and options.', 'Human Resources', 'Medium', 'Pending Agent'),
+    (10, 5, 'Database Backup Issue', 'We encountered an error while performing the database backup. It needs immediate attention.', 'IT Support', 'Urgent', 'Pending Agent');
