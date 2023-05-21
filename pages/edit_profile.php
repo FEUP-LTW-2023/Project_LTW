@@ -2,16 +2,30 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../session.php');
+    require_once(__DIR__ . '/../db/account_class.php');
+    require_once(__DIR__ . '/../db/connection.php');
     $session = new Session();
+    $db = getdbconnection();
 
     if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
+    
+    $user = Account::getUserWithId($db, $session->getId());
     
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/edit_profile_template.php');
 
     draw_head();
-    // para já fica client sidebar, depois adicionar logica para verificar a role do user
-    draw_client_sidebar();
+    switch($user->role){
+        case 'Client':
+            draw_client_sidebar();
+            break;
+        case 'Agent':
+            draw_agent_sidebar();
+            break;
+        case 'Admin':
+            draw_admin_sidebar();
+            break;
+    }
     draw_edit_profile($session);
 ?>
 
