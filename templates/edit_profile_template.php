@@ -1,5 +1,5 @@
 <?php
-function draw_profile(Session $session)
+function draw_edit_profile(Session $session)
 {
 ?>
 	<!-- CONTENT -->
@@ -27,21 +27,17 @@ function draw_profile(Session $session)
 				<p class="name">
 					<?php echo $session->getName(); ?>
 				</p>
-				<p>
-					<?php echo $session->getUsername(); ?>
-				</p>
-				<p>
-					<?php echo $session->getEmail(); ?>
-				</p>
+				<input type="text" value="<?php echo $session->getUsername(); ?>">
+				<input type="email" value="<?php echo $session->getEmail(); ?>">
 				<p class="role">
 					<?php echo $session->getRole(); ?>
 				</p>
 				<form action="/../actions/logout.php" method="post">
 					<button id="logout" type="submit">Logout</button>
 				</form>
-				<a href="../pages/edit_profile.php" class="edit-profile">
-					<i class='bx bx-pencil'></i> Edit Profile
-				</a>
+				<form action="/../pages/profile.php" method="post">
+					<button id="save-changes" type="submit">Save Changes</button>
+				</form>
 			</div>
 		</main>
 		<!-- MAIN -->
