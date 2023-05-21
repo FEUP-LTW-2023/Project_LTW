@@ -2,7 +2,10 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../session.php');
+    require_once(__DIR__ . '/../db/account_class.php');
+    require_once(__DIR__ . '/../db/connection.php');
     $session = new Session();
+    $db = getdbconnection();
 
     if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
     

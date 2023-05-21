@@ -34,9 +34,6 @@
 				<p class="role">
 					<?php echo $session->getRole(); ?>
 				</p>
-				<form action="/../actions/logout.php" method="post">
-					<button id="logout" type="submit">Logout</button>
-				</form>
 			</div>
 		</main>
 		<!-- MAIN -->
