@@ -39,16 +39,22 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=100.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+        rel="icon"
+        type="../new/image/png"
+        sizes="32x32"
+        href="../new/assets/coding.png"
+        />
+        <!-- Boxicons -->
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <!-- My CSS -->
+        <link rel="stylesheet" href="../style/style.css">
 
-        <link href="../style/style_.css" rel="stylesheet">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="../js/faq.js"></script>
 
-  <title>FAQ</title>
-</head>
-
-<body>
+        <title>QuickFix - FAQ</title>
+    </head>
+    <body>
 <?php } ?>
