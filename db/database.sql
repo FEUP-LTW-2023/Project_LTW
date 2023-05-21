@@ -14,7 +14,7 @@ create table Account
     email varchar(255) not null unique,
     password nvarchar(255) not null,
     name varchar(255),
-    role varchar(255)
+    role varchar(255) default 'Client'
 );
 
 create table Ticket
