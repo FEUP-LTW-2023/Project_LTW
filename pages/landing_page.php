@@ -4,7 +4,7 @@
     require_once(__DIR__ . '/../templates/landing_page_template.php');
 
     draw_head();
-    draw_lading_page();
+    draw_landing_page();
 ?>
 
 

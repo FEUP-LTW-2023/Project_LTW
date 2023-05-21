@@ -1,4 +1,4 @@
-<?php function draw_lading_page () { ?>
+<?php function draw_landing_page () { ?>
     <div class="hero-image"></div>
     <div class="main-wrapper">
       <header class="header">
