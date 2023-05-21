@@ -1,7 +1,10 @@
 pragma foreign_keys = on;
 
-drop table if exists Account;
-drop table if exists Ticket;
+DROP TABLE IF EXISTS Account;
+DROP TABLE IF EXISTS Ticket;
+DROP TABLE IF EXISTS Department;
+DROP TABLE IF EXISTS Status;
+DROP TABLE IF EXISTS Priority;
 
 
 create table Account
@@ -26,3 +29,38 @@ create table Ticket
     status varchar(255),
     datecreated timestamp default (datetime('now', 'localtime'))
 );
+
+create table Department(
+    id integer primary key autoincrement not null,
+    name varchar(255) not null
+);
+
+create table Priority(
+    id integer primary key autoincrement not null,
+    name varchar(255) not null
+);
+
+create table Status(
+    id integer primary key autoincrement not null,
+    name varchar(255) not null
+);
+
+insert into Account (username, email, password, name, role) values ('pedroclient', 'pedro1@email.com', 'pedropass', 'Pedro Gomes', 'Client');
+insert into Account (username, email, password, name, role) values ('pedroagent', 'pedro2@email.com', 'pedropass', 'Pedro Gomes', 'Agent');
+insert into Account (username, email, password, name, role) values ('pedroadmin', 'pedro3@email.com', 'pedropass', 'Pedro Gomes', 'Admin');
+
+insert into Department(name) values ('IT Support');
+insert into Department(name) values ('Human Resources');
+insert into Department(name) values ('Finance');
+insert into Department(name) values ('Marketing');
+insert into Department(name) values ('Administration');
+
+insert into Status(name) values ('Pending Agent');
+insert into Status(name) values ('Assigned');
+insert into Status(name) values ('In Progress');
+insert into Status(name) values ('Closed');
+
+insert into Priority(name) values ('Low');
+insert into Priority(name) values ('Medium');
+insert into Priority(name) values ('High');
+insert into Priority(name) values ('Urgent');

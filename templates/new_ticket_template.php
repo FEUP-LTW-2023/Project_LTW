@@ -1,6 +1,7 @@
 <?php
-function draw_new_ticket()
+function draw_new_ticket(PDO $db)
 {
+    $departments = $db->query("SELECT * FROM Department")->fetchAll(PDO::FETCH_ASSOC);
     ?>
     <!-- CONTENT -->
     <section id="content">
@@ -33,31 +34,16 @@ function draw_new_ticket()
 
                             <label for="department">Department</label>
                             <div class="department">
-                                <label>
-                                    <input type="radio" id="it" name="department" value="IT" checked />
-                                    <span class="ml-2">IT Support</span>
-                                </label>
-                                <label>
-                                    <input type="radio" id="human-resources" name="department" value="Human Resources" />
-                                    <span class="ml-2">Human Resources</span>
-                                </label>
-                                <label>
-                                    <input type="radio" id="finance" name="department" value="Finance" />
-                                    <span class="ml-2">Finance</span>
-                                </label>
-                                <label>
-                                    <input type="radio" id="marketing" name="department" value="Marketing" />
-                                    <span class="ml-2">Marketing</span>
-                                </label>
-                                <label>
-                                    <input type="radio" id="administration" name="department" value="Administration" />
-                                    <span class="ml-2">Administration</span>
-                                </label>
+                                <?php foreach ($departments as $department) { ?>
+                                    <label>
+                                        <input type="radio" id="<?php echo $department['id']; ?>" name="department" value="<?php echo $department['name']; ?>" <?php if ($department['id'] === 1) echo 'checked'; ?> />
+                                        <span class="ml-2"><?php echo $department['name']; ?></span>
+                                    </label>
+                                <?php } ?>
                             </div>
 
                             <label for="description">Description</label>
-                            <textarea id="description" name="description" rows="3"
-                                placeholder="Description of the ticket"></textarea>
+                            <textarea id="description" name="description" rows="3" placeholder="Description of the ticket"></textarea>
 
                             <button type="submit">Submit Ticket</button>
                         </form>
