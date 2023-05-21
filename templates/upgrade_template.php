@@ -3,7 +3,7 @@
     require_once(__DIR__ . '/../db/account_class.php');
 
     $stmt = $db->prepare('
-        select name, username, email, role
+        select id, name, username, email, role
         from Account
     ');
     $stmt->execute();
@@ -47,8 +47,12 @@
                             <tr>
                                 <td>
                                     <img src="../new/img/people.png">
-                                    <p><?php echo $user->name; ?></p>
-                                </td>
+									<a href="../pages/profile.php?id=<?php echo $user->id; ?>">
+									<p>
+										<?php echo $user->name . ' (' . $user->username . ')'; ?>
+									</p>
+									</a>                 
+								</td>
                                 <td><?php echo $user->email; ?></td>
                                 <td><span class="status role"><?php echo $user->role; ?></span></td>
                                 <td><i class='bx bx-pencil'></i></td>

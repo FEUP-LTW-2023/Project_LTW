@@ -93,7 +93,7 @@
 		</ul>
         <ul class="side-menu top">
 			<li>
-				<a href="#">
+				<a href="../pages/upgrade.php">
 					<i class='bx bxs-group' ></i>
 					<span class="text">User Roles</span>
 				</a>
