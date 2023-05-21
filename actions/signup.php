@@ -10,11 +10,12 @@
     $db = getdbconnection();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['name'];
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $user = Account::signup($db, $username, $email, $password);
+        $user = Account::signup($db, $username, $email, $password, $name);
 
         if ($user) {
             $session->setId($user->id);

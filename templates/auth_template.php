@@ -11,6 +11,7 @@
     </form>
     <form id="signup-form" action="/../actions/signup.php" method="post">
         <h1>First time here?</h1>
+        <input name="name" type="text" placeholder="name" autocomplete="off">
         <input name="username" type="text" placeholder="username" autocomplete="off">
         <input name="email" type="email" placeholder="e-mail" autocomplete="off">
         <input name="password" type="password" placeholder="password" autocomplete="off">

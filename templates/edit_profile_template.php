@@ -22,12 +22,12 @@ function draw_edit_profile(Session $session)
 
             <div class="card">
                 <div class="card-image">
-                    <img src="../new/img/pic.jpg" alt="Profile image">
+                    <img src="../assets/user.png" alt="Profile image">
                 </div>
                 <form action="/../actions/edit_profile.php" method="post">
                     <div class="form-field">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" value="<?php echo $session->getName(); ?>">
+                        <label id = "edit-name-label" for="name">Name</label>
+                        <input type="text" id="edit-name" name="name" value="<?php echo $session->getName(); ?>">
                     </div>
 					<div class="form-field">
                         <label for="username">Username</label>
@@ -35,7 +35,7 @@ function draw_edit_profile(Session $session)
                     </div>
                     <div class="form-field">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" value="<?php echo $session->getEmail(); ?>">
+                        <input type="email" id="edit-email" name="email" value="<?php echo $session->getEmail(); ?>">
                     </div>
                     <button type="submit">Save Changes</button>
                 </form>

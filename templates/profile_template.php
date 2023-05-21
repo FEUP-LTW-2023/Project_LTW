@@ -37,9 +37,6 @@ function draw_profile(Session $session, PDO $db, int $id)
                     <?php echo Account::getUserWithId($db, $id)->role; ?>
                 </p>
                 <?php if ($session->getId() == $id) { ?>
-                    <form action="/../actions/logout.php" method="post">
-                        <button id="logout" type="submit">Logout</button>
-                    </form>
                     <a href="../pages/edit_profile.php" class="edit-profile">
                         <i class='bx bx-pencil'></i> Edit Profile
                     </a>

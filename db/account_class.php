@@ -41,7 +41,7 @@ class Account
             return null;
     }
 
-    public static function signup(PDO $db, string $username, string $email, string $password): ?Account
+    public static function signup(PDO $db, string $username, string $email, string $password, string $name): ?Account
     {
         $stmt = $db->prepare('select count(*) from Account where username = ? or email = ?');
         $stmt->execute([$username, $email]);
@@ -49,17 +49,17 @@ class Account
 
         if ($count == 0) {
             $stmt = $db->prepare("
-            insert into Account (username, email, password)
-            values (?, ?, ?)
+            insert into Account (username, email, password, name)
+            values (?, ?, ?, ?)
         ");
 
-            $stmt->execute([$username, $email, $password]);
+            $stmt->execute([$username, $email, $password, $name]);
 
             $account = new Account(
                 intval($db->lastInsertId()),
                 $username,
                 $email,
-                '',
+                $name,
                 '',
             );
 
