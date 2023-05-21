@@ -22,6 +22,9 @@
         case 'Admin':
             draw_admin_sidebar();
             break;
+        default:
+            header('Location: authentication.php');
+            break;
     }
     draw_admin_departments();
 ?>
