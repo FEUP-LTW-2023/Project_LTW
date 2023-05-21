@@ -14,7 +14,7 @@
     $user = Account::getUserWithId($db, $session->getId());
     
     require_once(__DIR__ . '/../templates/sidebar_template.php');
-    require_once(__DIR__ . '/../templates/dashboard_template.php');
+    require_once(__DIR__ . '/../templates/ticket_central_template.php');
 
     draw_head();
     switch($user->role){
@@ -31,7 +31,7 @@
             header('Location: authentication.php');
             break;
     }
-    draw_agentdashboard();
+    draw_ticket_central();
 ?>
 
 
