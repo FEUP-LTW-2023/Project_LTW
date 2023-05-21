@@ -1,7 +1,7 @@
 <?php function draw_faq(){ ?>
 
 <div id = "faq">
-    <img src="/../new/images/faq.png">
+    <img src="/../images/faq.png">
     <section>
         <header>
           <h1>Frequently Asked Questions</h1>
