@@ -52,8 +52,9 @@ CREATE TABLE IF NOT EXISTS AgentDepartment (
 
 CREATE TABLE IF NOT EXISTS TicketComment(
     ticketid INTEGER REFERENCES Ticket(id),
-    commentauthor INTEGER REFERENCES Account(id),
-    comment VARCHAR(255)
+    authorid INTEGER REFERENCES Account(id),
+    comment VARCHAR(255),
+    datecreated TIMESTAMP DEFAULT (datetime('now', 'localtime'))
 );
 
 INSERT INTO Department (name) VALUES

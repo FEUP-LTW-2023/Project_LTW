@@ -2,8 +2,25 @@
 
 require_once(__DIR__ . '/../db/account_class.php');
 
-function draw_ticket_details(PDO $db, Ticket $ticket)
-{ ?>
+function draw_ticket_details(Session $session, PDO $db, Ticket $ticket)
+{
+    $stmt = $db->prepare('
+    SELECT Priority.name AS priority_name, Status.name AS status_name, Department.name AS department_name
+    FROM Ticket
+    JOIN Priority ON Ticket.priority = Priority.id
+    JOIN Status ON Ticket.status = Status.id
+    JOIN Department ON Ticket.department = Department.id
+    WHERE Ticket.id = ?
+    ');
+    $stmt->execute([$ticket->id]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $priority = $result['priority_name'];
+    $status = $result['status_name'];
+    $department = $result['department_name'];
+
+
+    ?>
 
     <!-- CONTENT -->
     <section id="content">
@@ -35,42 +52,64 @@ function draw_ticket_details(PDO $db, Ticket $ticket)
                         <!-- ...existing code... -->
                         <div class="details-section">
                             <h2>Description</h2>
-                            <p><?php echo $ticket->description; ?></p>
-                            <p class="date"><?php echo $ticket->datecreated->format('F d, Y \a\t h:i A'); ?></p>
+                            <p>
+                                <?php echo $ticket->description; ?>
+                            </p>
+                            <p class="date">
+                                <?php echo $ticket->datecreated->format('F d, Y \a\t h:i A'); ?>
+                            </p>
                         </div>
 
                         <?php
-                        $comments = TicketComment::getCommentsForTicket($db, $ticket->id);
+                        $stmt = $db->prepare('
+                        SELECT *
+                        FROM TicketComment
+                        WHERE ticketid = ?
+                        ');
+                        $stmt->execute([$ticket->id]);
+                        $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                        if (!empty($comments)) :
-                        ?>
-                            <div class="comment-section">
+                        if (!empty($comments)):
+                            ?>
+                            <ul class="comment-section">
                                 <h2>Comments</h2>
-                                <?php foreach ($comments as $comment) : ?>
+                                <?php foreach ($comments as $comment): ?>
                                     <div class="comment">
-                                        <div class="comment-author">
-                                            <?php
-                                            $commentAuthor = Account::getUserWithId($db, $comment->commentauthor);
-                                            ?>
-                                            <a href="../pages/profile.php?id=<?php echo $commentAuthor->id; ?>">
-                                                <img src="../new/img/people.png" alt="Comment Author Profile Photo">
-                                                <h3><?php echo $commentAuthor->name . ' (' . $commentAuthor->username . ')'; ?></h3>
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <p><?php echo $comment->comment; ?></p>
-                                        </div>
+                                        <?php
+                                        $commentAuthor = Account::getUserWithId($db, $comment['authorid']);
+                                        ?>
+                                        <li>
+                                            <p>
+                                                <a href="../pages/profile.php?id=<?php echo $commentAuthor->id; ?>">
+                                                    <?php echo $commentAuthor->name . ' (' . $commentAuthor->username . '): '; ?>
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <?php echo $comment['comment']; ?>
+                                            </p>
+                                            <span>
+                                                <?php
+                                                $datecreated = new DateTime($comment['datecreated']);
+                                                echo $datecreated->format('F d, Y \a\t h:i A');
+                                                ?>
+                                            </span>
+                                        </li>
                                     </div>
                                 <?php endforeach; ?>
-                            </div>
+                            </ul>
                         <?php endif; ?>
 
                         <div class="comment-section">
                             <br>
-                            <label for="comment">Add a Reply:</label>
+                            <label for="comment-box">Add a Reply:</label>
                             <br>
-                            <textarea id="comment" name="comment" rows="4"></textarea>
-                            <button type="submit">Submit</button>
+                            <form action="../actions/save_comment.php" method="POST">
+                                <input type="hidden" name="ticketid" value="<?php echo $ticket->id; ?>">
+                                <!-- Assuming you have access to the author ID, you can include it as a hidden field -->
+                                <input type="hidden" name="authorid" value="<?php echo $session->getId(); ?>">
+                                <textarea id="comment-box" name="comment" rows="4"></textarea>
+                                <button type="submit">Submit</button>
+                            </form>
                         </div>
 
 
@@ -91,32 +130,34 @@ function draw_ticket_details(PDO $db, Ticket $ticket)
 
                         </li>
                         <li class="cor">
-                            <p>Priority: <span id="priority"><?php echo $ticket->priority; ?></span></p>
+                            <p>Priority: <span id="priority">
+                                    <?php echo $priority; ?>
+                                </span></p>
 
                         </li>
                         <li class="cor">
-                            <p>Status: <span id="status"><?php echo $ticket->status; ?></span></p>
+                            <p>Status: <span id="status">
+                                    <?php echo $status; ?>
+                                </span></p>
 
                         </li>
                         <li class="cor">
-                            <p>Department: <span id="department"><?php echo $ticket->department ?></span></p>
+                            <p>Department: <span id="department">
+                                    <?php echo $department; ?>
+                                </span></p>
 
                         </li>
                         <li class="cor">
                             <p>Assigned Agent: <span id="agent">
-                                <?php
-                                if ($ticket->agentid == 0)
-                                    echo 'None';
-                                else {
-                                    $agent = Account::getUserWithId($db, $ticket->agentid);
+                                    <?php
+                                    if ($ticket->agentid == 0)
+                                        echo 'None';
+                                    else {
+                                        $agent = Account::getUserWithId($db, $ticket->agentid);
+                                        echo $agent->name . ' (' . $agent->username . ')';
+                                    }
                                     ?>
-                                    <a href="../pages/profile.php?id=<?php echo $agent->id; ?>">
-                                        <?php echo $agent->name . ' (' . $agent->username . ')'; ?>
-                                    </a>
-                                <?php
-                                }
-                                ?>
-                            </span></p>
+                                </span></p>
 
                         </li>
                         <li class="cor">
@@ -132,10 +173,10 @@ function draw_ticket_details(PDO $db, Ticket $ticket)
     </section>
     <!-- CONTENT -->
 
-
     <script src="../new/script.js"></script>
     </body>
 
     </html>
-<?php } ?>
-
+    <?php
+}
+?>

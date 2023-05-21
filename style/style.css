@@ -1001,3 +1001,40 @@ article .qea {
 #onFocus {
     font-weight: 700;
 }
+
+ul.comment-section{
+	margin-bottom: 0;
+}
+.comment-section > h2{
+	margin-bottom: 1em;
+}
+.comment > li{
+	display: flex;
+	flex-direction: column;
+	margin-left: 1em;
+}
+.comment > li > p, .comment > li > p > a {
+	text-align: left;
+}
+.comment > li > p:first-child{
+	margin-top: 0.5em;
+	margin-bottom: 0;
+}
+.comment > li > p > a{
+	font-weight: bold;
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 13px;
+	margin: 0;
+	margin-bottom: 0.5em;
+}
+.comment > li > span {
+	font-size: 10px;
+	text-align: right;
+	margin-right: 1.5em;
+	margin-bottom: 1em;
+}
+.comment{
+	border: solid 2px rgba(255, 255, 255, 0.5);
+	border-radius: 15px;
+	margin-bottom: 0.5em;
+}
