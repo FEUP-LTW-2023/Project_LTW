@@ -5,8 +5,13 @@
     require_once(__DIR__ . '/../templates/ticket_details_template.php');
     require_once(__DIR__ . '/../db/ticket_class.php'); 
     require_once(__DIR__ . '/../db/connection.php'); 
-
+    require_once(__DIR__ . '/../session.php');
+    require_once(__DIR__ . '/../db/account_class.php');
+    
+    
     $db = getdbconnection();
+    $session = new Session();
+    $user = Account::getUserWithId($db, $session->getId());
 
     $ticket = Ticket::getTicket($db, intval($_GET['id']));
 

@@ -69,40 +69,38 @@ function draw_ticket_details(PDO $db, Ticket $ticket)
                 <div class="todo">
                     <div class="head">
                         <h3>Ticket Details</h3>
-                        <i class='bx bx-pencil'></i>
+                        <i class='bx bx-pencil' onclick="editTicket()"></i>
                     </div>
                     <ul class="todo-list">
                         <li class="cor">
                             <p>Ticket ID: #
-                                <?php echo $ticket->id ?>
+                                <?php echo $ticket->id;?>
                             </p>
 
                         </li>
                         <li class="cor">
-                            <p>Priority: <?php echo $ticket->priority; ?></p>
+                            <p>Priority: <span id="priority"><?php echo $ticket->priority; ?></span></p>
 
                         </li>
                         <li class="cor">
-                            <p>Status: <?php echo $ticket->status; ?></p>
+                            <p>Status: <span id="status"><?php echo $ticket->status; ?></span></p>
 
                         </li>
                         <li class="cor">
-                            <p>Department:
-                                <?php echo $ticket->department ?>
-                            </p>
+                            <p>Department: <span id="department"><?php echo $ticket->department ?></span></p>
 
                         </li>
                         <li class="cor">
-                            <p>Assigned Agent:
+                            <p>Assigned Agent: <span id="agent">
                                 <?php
                                 if ($ticket->agentid == 0)
                                     echo 'None';
                                 else {
                                     $agent = Account::getUserWithId($db, $ticket->agentid);
-                                    echo $agent->name;
+                                    echo $agent->id;
                                 }
                                 ?>
-                            </p>
+                            </span></p>
 
                         </li>
                         <li class="cor">
