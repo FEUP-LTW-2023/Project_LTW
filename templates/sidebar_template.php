@@ -1,13 +1,13 @@
 <?php function draw_client_sidebar() { ?>
     <section id="sidebar">
-		<a href="#" class="brand">
+		<a href="../pages/landing_page.php" class="brand">
 			<img src="../new/assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
 		
 		<ul class="side-menu top">
 			<li>
-				<a href="#">
+				<a href="../pages/dashboard.php">
 					<i class='bx bxs-category' ></i>
 					<span class="text">Ticket Central</span>
 				</a>
@@ -36,20 +36,20 @@
 
 <?php function draw_agent_sidebar() { ?>
     <section id="sidebar">
-		<a href="#" class="brand">
+		<a href="../pages/landing_page.php" class="brand">
 			<img src="../new/assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
 		
 		<ul class="side-menu top">
 			<li>
-				<a href="#">
+				<a href="../pages/dashboard.php">
 					<i class='bx bxs-category' ></i>
 					<span class="text">Ticket Central</span>
 				</a>
 			</li>
 			<li>
-				<a href="../pages/client_tickets.php">
+				<a href="../pages/assigned_tickets.php">
 					<i class='bx bx-file' ></i>
 					<span class="text">Assigned Tickets</span>
 				</a>
@@ -72,20 +72,20 @@
 
 <?php function draw_admin_sidebar() { ?>
     <section id="sidebar">
-		<a href="#" class="brand">
+		<a href="../pages/landing_page.php" class="brand">
 			<img src="../new/assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
 		
 		<ul class="side-menu top">
-			<li class="active">
-				<a href="#">
+			<li>
+				<a href="../pages/dashboard.php">
 					<i class='bx bxs-category' ></i>
 					<span class="text">Ticket Central</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="../pages/assigned_tickets.php">
 					<i class='bx bx-file'></i>
 					<span class="text">Assigned Tickets</span>
 				</a>
@@ -93,19 +93,19 @@
 		</ul>
         <ul class="side-menu top">
 			<li>
-				<a href="#">
+				<a href="../pages/upgrade.php">
 					<i class='bx bxs-group' ></i>
 					<span class="text">User Roles</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="../pages/admin_departments.php">
 					<i class='bx bxs-building' ></i>
 					<span class="text">Departments</span>
 				</a>
 			</li>
 			<li>
-				<a href="admin_settings.php">
+				<a href="../pages/admin_settings.php">
 					<i class='bx bxs-cog' ></i>
 					<span class="text">Administration</span>
 				</a>
@@ -113,7 +113,7 @@
 		</ul>
 		<ul class="side-menu top">
 			<li>
-				<a href="faq.php">
+				<a href="../pages/faq.php">
 					<i class='bx bxs-help-circle' ></i>
 					<span class="text">FAQ</span>
 				</a>

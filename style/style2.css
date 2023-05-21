@@ -907,3 +907,10 @@ label {
 		min-width: 420px;
 	}
 }
+
+#ticket:hover{
+	cursor: pointer;
+}
+.details-section > *{
+	text-align: left;
+}

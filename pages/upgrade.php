@@ -31,7 +31,7 @@
             header('Location: authentication.php');
             break;
     }
-    draw_upgrade();
+    draw_upgrade($db);
 ?>
 
 
