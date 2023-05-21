@@ -17,7 +17,7 @@ function draw_ticket_central(PDO $db)
         </form>
         <label></label>
         <a href="../pages/profile.php" class="profile">
-            <img src="img/people.png">
+            <img src="../assets/user.png">
         </a>
     </nav>
     <!-- NAVBAR -->
@@ -53,7 +53,7 @@ function draw_ticket_central(PDO $db)
                         <?php foreach ($tickets as $ticket) { ?>
                             <tr id="ticket" onclick="window.location.href='../pages/ticket_details.php?id=<?php echo $ticket['id']; ?>'">
                                 <td>
-                                    <img src="../new/img/people.png">
+                                    <img src="../assets/user.png">
                                     <p><?php echo $ticket['name'] . " (" . $ticket['username'] . ")"; ?></p>
                                 </td>
                                 <td><?php echo $ticket['subject']; ?></td>

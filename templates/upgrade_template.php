@@ -19,7 +19,7 @@
         </form>
         <label></label>
         <a href="../pages/profile.php" class="profile">
-            <img src="../new/img/people.png">
+            <img src="../assets/user.png">
         </a>
     </nav>
     <!-- NAVBAR -->
@@ -46,7 +46,6 @@
                         <?php foreach ($users as $user) { ?>
                             <tr>
                                 <td>
-                                    <img src="../new/img/people.png">
 									<a href="../pages/profile.php?id=<?php echo $user->id; ?>">
 									<p>
 										<?php echo $user->name . ' (' . $user->username . ')'; ?>
