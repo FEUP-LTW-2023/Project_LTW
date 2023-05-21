@@ -41,10 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     printf("error2");
     $stmt = $db->prepare('
-        UPDATE Ticket SET priority = ?, status = ?, department = ?
+        UPDATE Ticket SET priority = ?, status = ?, department = ?, agent = ?
         WHERE id = ?
     ');
-    $stmt->execute([$p_id, $s_id, $d_id, $ticketId]);
+    $stmt->execute([$p_id, $s_id, $d_id, intval($_POST['agentid']), $ticketId]);
 
     // Redirect back to the ticket details page
     header('Location: ../pages/ticket_details.php?id=' . $ticketId);

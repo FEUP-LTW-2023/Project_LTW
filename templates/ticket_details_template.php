@@ -19,6 +19,17 @@ function draw_ticket_details(Session $session, PDO $db, Ticket $ticket)
     $status = $result['status_name'];
     $department = $result['department_name'];
 
+    $stmt = $db->prepare('
+        SELECT username, name 
+        FROM Account
+        WHERE id = ?
+    ');
+    $stmt->execute([$ticket->authorid]);
+
+    $result = $stmt->fetch();
+
+    $username = $result['username'];
+    $name = $result['name'];
 
     ?>
 
@@ -49,6 +60,9 @@ function draw_ticket_details(Session $session, PDO $db, Ticket $ticket)
             <div class="table-data">
                 <div class="order">
                     <table>
+                        <div class="details-section">
+                            <h1><?php echo $name.' ('.$username.')'; ?></h1>
+                        </div>
                         <div class="details-section">
                             <h2>Description</h2>
                             <p>
