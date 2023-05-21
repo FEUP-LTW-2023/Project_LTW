@@ -2,10 +2,13 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../templates/auth_template.php');
+    require_once(__DIR__ . '/../session.php');
+
+    $session = new Session();
 
     draw_head();
     draw_auth();
-    draw_footer();
+    draw_alerts($session);
 ?>
 
 <?php function draw_head() { ?>
@@ -25,7 +28,14 @@
     <body>
 <?php } ?>
 
-<?php function draw_footer() { ?>
-    </body>
-    </html>
-<?php } ?>
+<?php function draw_alerts(Session $session){
+    $messages = $session->getMessages();
+
+    foreach ($messages as $message) {
+        if ($message['type'] === 'error') {
+            echo '<script>window.onload = function() { alert("' . $message['text'] . '"); };</script>';
+        }
+    }
+
+}
+?>
