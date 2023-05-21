@@ -25,6 +25,9 @@
         case 'Admin':
             draw_admin_sidebar();
             break;
+        default:
+            header('Location: authentication.php');
+            break;
     }
     if (!isset($_GET['id'])) {
         $id = $session->getId();

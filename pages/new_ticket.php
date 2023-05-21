@@ -8,8 +8,10 @@
     
     $db = getdbconnection();
     $session = new Session();
-    if($session->isLoggedIn()) $user = Account::getUserWithId($db, $session->getId());
-    else header('Location: authentication.php');
+    
+    if(!$session->isLoggedIn()) die(header('Location: authentication.php'));
+
+    $user = Account::getUserWithId($db, $session->getId());
 
     require_once(__DIR__ . '/../templates/sidebar_template.php');
     require_once(__DIR__ . '/../templates/new_ticket_template.php');
@@ -24,6 +26,9 @@
             break;
         case 'Admin':
             draw_admin_sidebar();
+            break;
+        default:
+            header('Location: authentication.php');
             break;
     }
     draw_new_ticket($db);

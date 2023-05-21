@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS Status;
 DROP TABLE IF EXISTS Priority;
 
 
-create table Account
+create table if not exists Account
 (
     id integer primary key autoincrement not null,
     username varchar(255) not null unique,
@@ -17,7 +17,7 @@ create table Account
     role varchar(255) default 'Client'
 );
 
-create table Ticket
+create table if not exists Ticket
 (
     id integer primary key autoincrement not null,
     author integer not null references Account(id),
@@ -30,19 +30,24 @@ create table Ticket
     datecreated timestamp default (datetime('now', 'localtime'))
 );
 
-create table Department(
+create table if not exists Department(
     id integer primary key autoincrement not null,
     name varchar(255) not null
 );
 
-create table Priority(
+create table if not exists Priority(
     id integer primary key autoincrement not null,
     name varchar(255) not null
 );
 
-create table Status(
+create table if not exists Status(
     id integer primary key autoincrement not null,
     name varchar(255) not null
+);
+
+create table if not exists AgentDepartment(
+    agentid integer references Account(id),
+    departmentid integer references Department(id)
 );
 
 insert into Account (username, email, password, name, role) values ('pedroclient', 'pedro1@email.com', 'pedropass', 'Pedro Gomes', 'Client');
@@ -54,6 +59,9 @@ insert into Department(name) values ('Human Resources');
 insert into Department(name) values ('Finance');
 insert into Department(name) values ('Marketing');
 insert into Department(name) values ('Administration');
+
+insert into AgentDepartment values(2,3);
+insert into AgentDepartment values(2,4);
 
 insert into Status(name) values ('Pending Agent');
 insert into Status(name) values ('Assigned');
