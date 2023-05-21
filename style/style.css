@@ -915,21 +915,31 @@ label {
 	text-align: left;
 }
 
-#faq {
-    width: 1000px;
-    height: 500px;
-    background-color: #171e25;
-	background-position: -2% 43%, 1230% 67%;
-  	background-size: 50%, 105%;
-    margin: auto;
-	margin-top: 3em;
-    border-radius: 1.5em;
-    padding: 2em 4em;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+
+  #wrapper {
+	height: 100vh;
+	background: url("assets/background.jpg") no-repeat;
+	display: flex;
 	align-items: center;
-  	justify-content: flex-end;
-    padding-bottom: 0;
-    display: flex;
-    flex-direction: row;
+	justify-content: center;
+	flex-direction: column;
+  }
+#faq {
+    width: 80%;
+	height: 80%;
+	background: url("assets/ph.png") no-repeat, #171e25;
+	background-position: -2% 43%, 1230% 67%;
+	background-size: 50%, 105%;
+	padding: 2em 4em;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	border-radius: 1.5em;
 }
 #faq > section {
     width: 50%;
@@ -940,19 +950,19 @@ label {
 	flex-direction: column;
 	font-family: "Kumbh Sans", sans-serif;
 }
-#faq > img{
-	margin-left: 2em;
-}
+
 section .question {
     background: url("./../images/arrow-down-3101.svg") no-repeat 100% 50%;
     background-size: 12px auto;
     font-size: 13px;
+	color: white;
 }
 section .answer {
     padding: 1em;
-    font-size: 11.5px;
-    line-height: 1.7em;
-    display: none;
+	font-size: 11.5px;
+	line-height: 1.7em;
+	display: none;
+	color: white;
 }
 section .question,
 section .answer {
@@ -963,31 +973,29 @@ section .answer {
 #faq > section header {
     width: 100%;
 	padding-bottom: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 16px;
+	color: white;
 }
 article::-webkit-scrollbar {
     display: none;
 }
 #faq > article {
     -ms-overflow-style: none;
-    scrollbar-width: none;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+	scrollbar-width: none;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
 }
 #faq > article ul {
     height: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    list-style-type: none;
-    margin: 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-direction: column;
+	list-style-type: none;
 }
 article .qea {
     width: 100%;
@@ -1069,4 +1077,76 @@ ul.comment-section{
 }
 select{
 	background-color: #171e25;
+}
+
+/* Media query para telas divididas em duas janelas */
+@media screen and (max-width: 1280px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  #content {
+    position: static;
+    width: 100%;
+    left: auto;
+  }
+
+  #content nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  #content nav::before {
+    display: none;
+  }
+
+  #content nav .nav-link {
+    display: inline-block;
+  }
+
+  #content nav form .form-input input {
+    display: none;
+  }
+
+  #content nav form .form-input button {
+    display: none;
+  }
+
+  #content nav form.show .form-input input {
+    display: block;
+  }
+
+  #content nav form.show .form-input button {
+    display: inline-block;
+  }
+
+  #content nav .notification,
+  #content nav .profile {
+    display: none;
+  }
+
+  #content main {
+    max-height: none;
+  }
+
+  #content main .table-data .order,
+  #content main .table-data .todo {
+    flex-basis: 100%;
+  }
+
+  #content main .table-data .head,
+  #content main .table-data .order table,
+  #content main .table-data .todo .todo-list {
+    min-width: 100%;
+  }
 }
