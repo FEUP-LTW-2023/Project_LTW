@@ -1,6 +1,6 @@
 <?php function draw_client_sidebar() { ?>
     <section id="sidebar">
-		<a href="#" class="brand">
+		<a href="../pages/landing_page.php" class="brand">
 			<img src="../new/assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
@@ -36,7 +36,7 @@
 
 <?php function draw_agent_sidebar() { ?>
     <section id="sidebar">
-		<a href="#" class="brand">
+		<a href="../pages/landing_page.php" class="brand">
 			<img src="../new/assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
@@ -72,7 +72,7 @@
 
 <?php function draw_admin_sidebar() { ?>
     <section id="sidebar">
-		<a href="#" class="brand">
+		<a href="../pages/landing_page.php" class="brand">
 			<img src="../new/assets/logoo.png" alt="Logo">
 			<span class="text">QUICKFIX</span>
 		</a>
