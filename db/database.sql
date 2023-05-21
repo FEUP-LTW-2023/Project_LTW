@@ -23,9 +23,9 @@ CREATE TABLE IF NOT EXISTS Ticket (
     agent INTEGER REFERENCES Account(id),
     subject VARCHAR(255),
     description VARCHAR(255),
-    department VARCHAR(255),
-    priority VARCHAR(255),
-    status VARCHAR(255),
+    department INTEGER REFERENCES Department(id),
+    priority INTEGER REFERENCES Priority(id),
+    status INTEGER REFERENCES Status(id),
     datecreated TIMESTAMP DEFAULT (datetime('now', 'localtime'))
 );
 
@@ -109,18 +109,18 @@ INSERT INTO AgentDepartment (agentid, departmentid) VALUES
     (8, 4); -- Laura Smith - Finance
 
 INSERT INTO Ticket (author, agent, subject, description, department, priority, status) VALUES
-    (9, 4, 'Website Login Issue', 'I am unable to log in to the website. It gives me an error message.', 'IT Support', 'High', 'Pending Agent'),
-    (10, 5, 'Email Not Sending', 'I have been trying to send emails, but they are not going through. Please help.', 'IT Support', 'Medium', 'Pending Agent'),
-    (11, 6, 'Employee Leave Request', 'One of our employees has submitted a leave request. Please review and approve it.', 'Human Resources', 'Low', 'Pending Agent'),
-    (12, 7, 'Marketing Campaign Ideas', 'We are planning a new marketing campaign and need some creative ideas.', 'Marketing', 'Medium', 'Pending Agent'),
-    (13, 8, 'Expense Reimbursement', 'I would like to request reimbursement for the expenses incurred during a business trip.', 'Finance', 'High', 'Pending Agent'),
-    (9, 4, 'Website Performance Issue', 'The website is running slow and taking a long time to load pages.', 'IT Support', 'Medium', 'Pending Agent'),
-    (14, 5, 'New Employee Onboarding', 'We have a new employee joining next week. Please assist with the onboarding process.', 'Human Resources', 'High', 'Pending Agent'),
-    (15, 6, 'Network Connectivity Problem', 'There seems to be an issue with the network connectivity in our office.', 'IT Support', 'Medium', 'Pending Agent'),
-    (10, 5, 'Software Installation Error', 'I am trying to install a software application, but it keeps showing an error during installation.', 'IT Support', 'Medium', 'Pending Agent'),
-    (11, 6, 'Employee Performance Evaluation', 'We need to conduct a performance evaluation for one of our employees. Please schedule a meeting.', 'Human Resources', 'Low', 'Pending Agent'),
-    (12, 7, 'Social Media Marketing Strategy', 'We are looking to revamp our social media marketing strategy. Any suggestions?', 'Marketing', 'Medium', 'Pending Agent'),
-    (13, 8, 'Budget Approval Request', 'I need approval for a budget allocation request for an upcoming project.', 'Finance', 'High', 'Pending Agent'),
-    (14, 5, 'Hardware Malfunction', 'One of our office computers is not functioning properly. It might need a hardware repair.', 'IT Support', 'High', 'Pending Agent'),
-    (15, 6, 'Employee Training Program', 'We would like to organize a training program for our employees. Please provide details and options.', 'Human Resources', 'Medium', 'Pending Agent'),
-    (10, 5, 'Database Backup Issue', 'We encountered an error while performing the database backup. It needs immediate attention.', 'IT Support', 'Urgent', 'Pending Agent');
+    (9, 4, 'Website Login Issue', 'I am unable to log in to the website. It gives me an error message.', 2, 3, 1),
+    (10, 5, 'Email Not Sending', 'I have been trying to send emails, but they are not going through. Please help.', 2, 2, 1),
+    (11, 6, 'Employee Leave Request', 'One of our employees has submitted a leave request. Please review and approve it.', 3, 1, 1),
+    (12, 7, 'Marketing Campaign Ideas', 'We are planning a new marketing campaign and need some creative ideas.', 1, 2, 1),
+    (13, 8, 'Expense Reimbursement', 'I would like to request reimbursement for the expenses incurred during a business trip.', 4, 3, 1),
+    (9, 4, 'Website Performance Issue', 'The website is running slow and taking a long time to load pages.', 2, 2, 1),
+    (14, 5, 'New Employee Onboarding', 'We have a new employee joining next week. Please assist with the onboarding process.', 3, 3, 1),
+    (15, 6, 'Network Connectivity Problem', 'There seems to be an issue with the network connectivity in our office.', 2, 2, 1),
+    (10, 5, 'Software Installation Error', 'I am trying to install a software application, but it keeps showing an error during installation.', 2, 2, 1),
+    (11, 6, 'Employee Performance Evaluation', 'We need to conduct a performance evaluation for one of our employees. Please schedule a meeting.', 3, 1, 1),
+    (12, 7, 'Social Media Marketing Strategy', 'We are looking to revamp our social media marketing strategy. Any suggestions?', 1, 2, 1),
+    (13, 8, 'Budget Approval Request', 'I need approval for a budget allocation request for an upcoming project.', 4, 3, 1),
+    (14, 5, 'Hardware Malfunction', 'One of our office computers is not functioning properly. It might need a hardware repair.', 2, 3, 1),
+    (15, 6, 'Employee Training Program', 'We would like to organize a training program for our employees. Please provide details and options.', 3, 2, 1),
+    (10, 5, 'Database Backup Issue', 'We encountered an error while performing the database backup. It needs immediate attention.', 2, 4, 1);
