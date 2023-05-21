@@ -35,7 +35,6 @@ function draw_admin_departments(PDO $db)
                     <div class="order">
                         <div class="head">
                             <h3><?php echo $departmentName; ?></h3>
-                            <i class='bx bx-plus'></i>
                         </div>
                         <table>
                             <thead>
@@ -62,7 +61,6 @@ function draw_admin_departments(PDO $db)
                                                 <p>{$agent['name']} ({$agent['username']})</p>
                                             </td>
                                             <td>{$agent['email']}</td>
-                                            <td><i class='bx bx-trash'></i></td>
                                         </tr>";
                                 }
                                 ?>

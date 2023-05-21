@@ -930,8 +930,8 @@ label {
 	flex-direction: column;
   }
 #faq {
-    width: 80%;
-	height: 80%;
+    width: 1000px;
+	height: 500px;
 	background: url("assets/ph.png") no-repeat, #171e25;
 	background-position: -2% 43%, 1230% 67%;
 	background-size: 50%, 105%;
@@ -940,6 +940,9 @@ label {
 	align-items: center;
 	justify-content: flex-end;
 	border-radius: 1.5em;
+}
+#faq > img{
+	height: 400px;
 }
 #faq > section {
     width: 50%;
